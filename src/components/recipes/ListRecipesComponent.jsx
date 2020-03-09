@@ -1,17 +1,29 @@
 import React, {Component} from 'react'
-
+import RecipeDataService from '../../api/recipes/RecipeDataService.js'
+import AuthenticationService from './AuthenticationService.js'
 
 class ListRecipesComponent extends Component{
     // hardcoding some table information for learning. Will replace
     constructor(props){
         super(props)
         this.state = {
-            recipes : [
-                    {id:1, name:"French Toast", directions: "Make it good.", ingredients: "4 eggs, 2/3 cups of milk, 8 slices of bread, butter, maple syrup"}, 
-                    {id:2, name:"Scrambled Eggs", directions: "Step 1 beat eggs. Step 2 fry them.", ingredients: "2 eggs"},
-                    {id:4, name:"Cereal", directions: "Step 1 add cereal to bowl. Step 2 add milk to bowl.", ingredients: "cereal, milk"}
-                ]
+            recipes : []
         }
+    }
+
+    //dont call initial api in the constructor
+    //if you do the state doesn't reinitialize until the api is finished 
+    componentDidMount() {
+
+        //use the username by using authentication service
+        let username = AuthenticationService.getLoggedInUser
+        RecipeDataService.retrieveAllRecipes(username)
+            .then(
+                response => {
+                    // console.log(response)
+                    this.setState({recipes : response.data})
+                }
+            )
     }
     render() {
         return  (   
