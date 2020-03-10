@@ -13,11 +13,16 @@ class ListRecipesComponent extends Component{
         this.updatrecipeClicked = this.updateRecipeClicked.bind(this);
         this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this);
         this.refreshRecipes = this.refreshRecipes.bind(this);
+        this.addRecipeClicked = this.addRecipeClicked.bind(this);
     }
 
     //dont call initial api in the constructor
     //if you do the state doesn't reinitialize until the api is finished 
     componentDidMount() {
+
+        if(this.state.id===-1){
+            return 
+        }
         console.log("component did Mount")
         this.refreshRecipes();
     }
@@ -47,10 +52,13 @@ class ListRecipesComponent extends Component{
         )
     }
 
+    addRecipeClicked(id) {
+        this.props.history.push(`/recipes/-1`)
+    }
 
     //ROUTE  /recipes/{$id}
     updateRecipeClicked(id) {
-        console.log('update' + id)
+        console.log('update ' + id)
         this.props.history.push(`/recipes/${id}`)
 
         // let username = AuthenticationService.getLoggedInUser()
@@ -100,6 +108,10 @@ class ListRecipesComponent extends Component{
 
                                 </tbody>
                             </table>
+                            <div className="row">
+                                <button className='btn btn-success' onClick={this.addRecipeClicked}>Add</button>
+
+                            </div>
                         </div>
                     </div>
                 )
