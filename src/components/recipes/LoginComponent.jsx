@@ -8,7 +8,7 @@ class LoginComponent extends Component {
         super(props)
         // added state to component
         this.state = {
-            username: 'user',
+            username: 'basil',
             password: '',
             hasLoginFailed: false,
             showSuccessMessage: false
@@ -33,20 +33,53 @@ class LoginComponent extends Component {
         }
     
         loginClicked(){
-            //username: user, password: user
-            //hardcoded for now change later
+           
+            //hardcoded version
             //whenever a user logs in successfully, send that data to session storage
-            if(this.state.username=== 'user' && this.state.password=== 'user'){
+            // if(this.state.username=== 'basil' && this.state.password=== 'basil'){
         
-                AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
-                this.props.history.push(`/welcome/${this.state.username}`)
+            //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
+            //     this.props.history.push(`/welcome/${this.state.username}`)
 
-            } else {
-                // console.log('failed')
+            // } else {
+            //     // console.log('failed')
+            //     this.setState({showSuccessMessage:false})
+            //     this.setState({hasLoginFailed:true})
+            // }
+
+            //call AuthenticationService
+            //it sends the username and basic authentication token which will be entered on the screen
+            //bc from the screen it was mapped to the state
+            //from the state it is passed into executeBasicAuthenticationService method
+            //if request is successful, register successful login and pass to the welcom page
+            // if it fails, show authentication error 
+
+            // AuthenticationService
+            //     .executeBasicAuthenticationService(this.state.username,this.state.password)
+            //     .then(() => {
+            //         AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
+            //         this.props.history.push(`/welcome/${this.state.username}`)
+            //     }).catch( () =>{
+            //         this.setState({showSuccessMessage:false})
+            //         this.setState({hasLoginFailed:true})
+            //     })
+
+
+            //UPDATE
+            //Call the JWTAuthenticationService, if succesful response comes back,
+            //register a token for the intercepter so token will be used on,
+            //every subsequent request
+            AuthenticationService
+            .executeJWTAuthenticationService(this.state.username, this.state.password)
+            .then((response) => {
+                AuthenticationService.registerSuccessfulLoginForJwt(this.state.username,response.data.token)
+                this.props.history.push(`/welcome/${this.state.username}`)
+            }).catch( () =>{
                 this.setState({showSuccessMessage:false})
                 this.setState({hasLoginFailed:true})
-            }
-            // console.log(this.state)
+            })
+    
+        
         }
 
 

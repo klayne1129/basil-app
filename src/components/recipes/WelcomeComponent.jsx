@@ -9,7 +9,7 @@ class WelcomeComponent extends Component {
         super(props)
         this.retrieveWelcomeMessage = this.retrieveWelcomeMessage.bind(this)
         this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this)
-        this.handleError = this.handleError .bind(this)
+        this.handleError = this.handleError.bind(this)
         this.state = {
             welcomeMessage : '',
             errorMessage : ''
@@ -58,9 +58,25 @@ class WelcomeComponent extends Component {
         this.setState({welcomeMessage : response.data.message})   
     }
 
+
+    // First checks if there is an error message
+    // if there is an error message, it appends it
+    // then it checks if there is something in the response data (not null)
+    // if there is a response you append it to the error message.
+    // prevents from crashing if you have an error that has no response 
+    // (network error, authorization issues)
+
     handleError(error){
         console.log(error.response)
-        this.setState({errorMessage : error.response.data.message})   
+        let errorMessage = '';
+        if (errorMessage){
+            errorMessage += error.message
+        }
+
+        if (error.response && error.response.data){
+            errorMessage += error.response.data.message
+        }
+        this.setState({errorMessage : errorMessage})   
     }
 
 }
