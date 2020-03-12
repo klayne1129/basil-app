@@ -12,7 +12,7 @@ class AuthenticationService {
         // need to send a post request with the username and password
         executeJWTAuthenticationService(username, password) {
             
-            return axios.get('http://localhost:8080/authenticate', {
+            return axios.post('http://localhost:8080/authenticate', {
                 username,
                 password
             })
