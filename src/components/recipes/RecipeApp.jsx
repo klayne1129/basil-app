@@ -25,7 +25,7 @@ class RecipeApp extends Component {
                         {/* AuthenticatedRoute prevents unathenticated users from trying 
                             to access restricted pages via typing in the browser 
                             RecipeComponent must have higher priority than ListRecipesComponent
-                            Place it higher*/}
+                        Place it higher*/}
                         <Switch>
                             <Route path="/" exact component={LoginComponent}/>
                             <Route path="/login" component={LoginComponent}/>

@@ -1,18 +1,21 @@
 import axios from 'axios'
+import {API_URL} from '../../Constants.js'
+
+export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 class AuthenticationService {
    
 
         //connect to backend BasicAuthenticationController using path
         executeBasicAuthenticationService(username, password) {
             
-            return axios.get('http://localhost:8080/basicauth', 
+            return axios.get(`${API_URL}/basicauth`, 
                 {headers: {authorization: this.createBasicAuthToken(username,password)}})
         }
 
         // need to send a post request with the username and password
         executeJWTAuthenticationService(username, password) {
             
-            return axios.post('http://localhost:8080/authenticate', {
+            return axios.post(`${API_URL}/authenticate`, {
                 username,
                 password
             })
@@ -26,13 +29,13 @@ class AuthenticationService {
     registerSuccessfulLogin(username, password) {
 
         // console.log("registered login")
-        sessionStorage.setItem('authenticatedUser', username)
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
         this.setupAxiosInterceptors(this.createBasicAuthToken(username,password))
 
     }
 
     registerSuccessfulLoginForJwt(username,token) {
-        sessionStorage.setItem('authenticatedUser', username)
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
         this.setupAxiosInterceptors(this.createJWTToken(token))
     }
 
@@ -42,12 +45,12 @@ class AuthenticationService {
 
     //when a user logs out the value from session storage is removed
     logout() {
-        sessionStorage.removeItem('authenticatedUser')
+        sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
     }
 
     //checks to see if a user has logged in to app
     isUserLoggedIn() {
-        let user = sessionStorage.getItem('authenticatedUser')
+        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
         if (user=== null) {
             return false
         } 
@@ -55,7 +58,7 @@ class AuthenticationService {
     }
 
     getLoggedInUser() {
-        let user = sessionStorage.getItem('authenticatedUser')
+        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
         if (user=== null) {
             return ''
         } 
