@@ -13,7 +13,8 @@ class RecipeComponent extends Component {
             id: this.props.match.params.id,
             name: '',
             directions: '',
-            ingredients: ''
+            ingredients: '',
+            notes: ''
         }
         this.onSubmit = this.onSubmit.bind(this)
         this.validate = this.validate.bind(this)
@@ -33,7 +34,8 @@ class RecipeComponent extends Component {
             .then(response => this.setState({
                 name: response.data.name,
                 directions: response.data.directions,
-                ingredients: response.data.ingredients
+                ingredients: response.data.ingredients,
+                notes: response.data.notes
             }))
     }
 
@@ -68,7 +70,8 @@ class RecipeComponent extends Component {
             id: this.state.id,
             name: values.name,
             directions: values.directions,
-            ingredients: values.ingredients
+            ingredients: values.ingredients,
+            notes: values.notes
         }
         if (this.state.id === -1) {
             RecipeDataService.createeRecipe(username, recipe)
@@ -85,7 +88,7 @@ class RecipeComponent extends Component {
 
     render() {
         //destructuring 
-        let { name, directions, ingredients } = this.state
+        let { name, directions, ingredients, notes } = this.state
 
         return (
 
@@ -100,7 +103,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list IVs as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ name, directions, ingredients }}
+                        initialValues={{ name, directions, ingredients, notes }}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -131,6 +134,10 @@ class RecipeComponent extends Component {
                                     <fieldset className='form-group'>
                                         <label>Ingredients</label>
                                         <Field className='form-control' type='text' name='ingredients' />
+                                    </fieldset>
+                                    <fieldset className='form-group'>
+                                        <label>Notes (Optional)</label>
+                                        <Field className='form-control' type='text' name='notes' />
                                     </fieldset>
                                     <button type="submit" className='btn btn-success'>Save</button>
                                 </Form>

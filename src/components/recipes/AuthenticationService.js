@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {API_URL} from '../../Constants.js'
-
+//create a constant for the key used for session storage
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 class AuthenticationService {
    

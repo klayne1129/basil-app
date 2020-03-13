@@ -23,11 +23,11 @@ class WelcomeComponent extends Component {
                             Welcome {this.props.match.params.name}. 
                             You can manage your recipes <Link to="/recipes">here</Link>.
                         </div>
-                        <div className="container">
+                        {/* <div className="container">
                             Click here for a customized welcome message. 
                             <button onClick={this.retrieveWelcomeMessage}
                                  className="btn btn-success">Welcome Message</button>
-                        </div>
+                        </div> */}
                         <div className="container">
                             {this.state.welcomeMessage}
                         </div>

@@ -3,7 +3,7 @@ import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 
 class ListRecipesComponent extends Component{
-    // hardcoding some table information for learning. Will replace
+    
     constructor(props){
         super(props)
         this.state = {
@@ -20,9 +20,6 @@ class ListRecipesComponent extends Component{
     //if you do the state doesn't reinitialize until the api is finished 
     componentDidMount() {
 
-        if(this.state.id===-1){
-            return 
-        }
         console.log("component did Mount")
         this.refreshRecipes();
     }
@@ -46,7 +43,7 @@ class ListRecipesComponent extends Component{
         RecipeDataService.deleteRecipe(username, id)
         .then (
             response => {
-                this.setState({message : `Delete of recipe ${id} successful.`})
+                this.setState({message : `Deletion of recipe ${id} successful.`})
                 this.refreshRecipes()
             }
         )
@@ -84,6 +81,7 @@ class ListRecipesComponent extends Component{
                                         <th>Name</th>
                                         <th>Directions</th>
                                         <th>Ingredients</th>
+                                        <th>Notes</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
 
@@ -99,6 +97,7 @@ class ListRecipesComponent extends Component{
                                                 <td>{recipe.name}</td>
                                                 <td>{recipe.directions}</td>
                                                 <td>{recipe.ingredients}</td>
+                                                <td>{recipe.notes}</td>
                                                 <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)} >Edit</button></td>
                                                 <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)} >Delete</button></td>
                                             
