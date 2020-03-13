@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import HelloWorldService from '../../api/recipes/HelloWorldService.js'
+
 
 
 class WelcomeComponent extends Component {
 
     constructor(props) {
         super(props)
-        this.retrieveWelcomeMessage = this.retrieveWelcomeMessage.bind(this)
         this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this)
         this.handleError = this.handleError.bind(this)
         this.state = {
@@ -42,17 +41,17 @@ class WelcomeComponent extends Component {
 
     // call the promise method. Once called THEN define what should be done with a
     // successful response
-    retrieveWelcomeMessage() {
-        // HelloWorldService.executeHelloWorldService()
-        // .then( response => this.handleSuccessfulResponse(response) )
+    // retrieveWelcomeMessage() {
+    //     // HelloWorldService.executeHelloWorldService()
+    //     // .then( response => this.handleSuccessfulResponse(response) )
 
-        // HelloWorldService.executeHelloWorldBeanService()
-        // .then( response => this.handleSuccessfulResponse(response) )
+    //     // HelloWorldService.executeHelloWorldBeanService()
+    //     // .then( response => this.handleSuccessfulResponse(response) )
 
-        HelloWorldService.executeHelloWorldPathVariableService(this.props.match.params.name)
-        .then( response => this.handleSuccessfulResponse(response) )
-        .catch( error => this.handleError(error))
-    }
+    //     HelloWorldService.executeHelloWorldPathVariableService(this.props.match.params.name)
+    //     .then( response => this.handleSuccessfulResponse(response) )
+    //     .catch( error => this.handleError(error))
+    // }
 
     handleSuccessfulResponse(response){
         this.setState({welcomeMessage : response.data.message})   

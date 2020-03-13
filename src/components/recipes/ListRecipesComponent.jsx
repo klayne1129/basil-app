@@ -37,6 +37,7 @@ class ListRecipesComponent extends Component{
             )
     }
 
+    // deletes recipe with username and id match, refreshes the recipe list
     deleteRecipeClicked(id) {
         let username = AuthenticationService.getLoggedInUser()
         // console.log(id + " " + username)
@@ -48,31 +49,23 @@ class ListRecipesComponent extends Component{
             }
         )
     }
-
+    // push to that new recipe page by id to add
     addRecipeClicked(id) {
         this.props.history.push(`/recipes/-1`)
     }
 
     //ROUTE  /recipes/{$id}
+    //edit button clicked
+    // push to that specific recipe page by id to edit
     updateRecipeClicked(id) {
         console.log('update ' + id)
         this.props.history.push(`/recipes/${id}`)
-
-        // let username = AuthenticationService.getLoggedInUser()
-        // // console.log(id + " " + username)
-        // RecipeDataService.deleteRecipe(username, id)
-        // .then (
-        //     response => {
-        //         this.setState({message : `Delete of recipe ${id} successful.`})
-        //         this.refreshRecipes()
-        //     }
-        // )
     }
 
     render() {
         return  (   
                      <div>
-                        <h1>List of Recipes</h1>
+                        <h1>My List of Recipes</h1>
                         {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                         <div className="container">
                             <table className="table">

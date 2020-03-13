@@ -93,7 +93,7 @@ class RecipeComponent extends Component {
         return (
 
             <div>
-                <h1>Recipe</h1>
+                <h1>My Recipe</h1>
                 <div className='container'>
 
                     {/* defining a method that accepts props as input 
