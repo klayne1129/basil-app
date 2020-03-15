@@ -14,6 +14,7 @@ class ListRecipesComponent extends Component{
         this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this);
         this.refreshRecipes = this.refreshRecipes.bind(this);
         this.addRecipeClicked = this.addRecipeClicked.bind(this);
+        this.printRecipeClicked = this.printRecipeClicked.bind(this);
     }
 
     //dont call initial api in the constructor
@@ -62,6 +63,14 @@ class ListRecipesComponent extends Component{
         this.props.history.push(`/recipes/${id}`)
     }
 
+    //Right now when the button is clicked it just wants to print the entire list page
+    //should redirect to a single recipe page and THEN print
+
+    printRecipeClicked(id) {
+        console.log("print")
+        window.print();
+    }
+
     render() {
         return  (   
                      <div>
@@ -93,6 +102,7 @@ class ListRecipesComponent extends Component{
                                                 <td>{recipe.notes}</td>
                                                 <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)} >Edit</button></td>
                                                 <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)} >Delete</button></td>
+                                                <td><button className="btn btn-success" value="Print" onClick={() => this.printRecipeClicked()}>Print</button></td>
                                             
                                             </tr>
                                         )

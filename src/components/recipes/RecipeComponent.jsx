@@ -97,10 +97,10 @@ class RecipeComponent extends Component {
                 <div className='container'>
 
                     {/* defining a method that accepts props as input 
-                        and reutns the html of the form */}
+                        and returns the html of the form */}
                     <Formik
 
-                        // usually you would need to list IVs as key value pairs
+                        // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
                         initialValues={{ name, directions, ingredients, notes }}
