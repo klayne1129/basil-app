@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9cfdce4c-6202-4c07-ba8c-f767d5cf78f9" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZBPfMKgM9vADfqsBVTFt6Jvo1W" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9cfdce4c-6202-4c07-ba8c-f767d5cf78f9" name="Default Changelist" comment="" />
+      <created>1584309615244</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584309615244</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="434" y="99" key="#com.intellij.ide.util.MemberChooser" timestamp="1584323826807">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state x="434" y="99" key="#com.intellij.ide.util.MemberChooser/0.23.1280.730@0.23.1280.730" timestamp="1584322960616" />
+    <state x="434" y="99" key="#com.intellij.ide.util.MemberChooser/0.23.1280.732@0.23.1280.732" timestamp="1584323826807" />
+    <state x="159" y="38" key="Maven.ArtifactSearchDialog" timestamp="1584322847549">
+      <screen x="0" y="23" width="1280" height="730" />
+    </state>
+    <state x="159" y="38" key="Maven.ArtifactSearchDialog/0.23.1280.730@0.23.1280.730" timestamp="1584322847549" />
+  </component>
+</project>
