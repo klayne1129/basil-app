@@ -35,7 +35,8 @@ class RecipeComponent extends Component {
                 name: response.data.name,
                 directions: response.data.directions,
                 ingredients: response.data.ingredients,
-                notes: response.data.notes
+                notes: response.data.notes,
+               
             }))
     }
 
@@ -89,7 +90,7 @@ class RecipeComponent extends Component {
 
     render() {
         //destructuring 
-        let { name, directions, ingredients, notes } = this.state
+        let { name, directions, ingredients, notes} = this.state
 
         return (
 
@@ -104,7 +105,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ name, directions, ingredients, notes }}
+                        initialValues={{ name, directions, ingredients, notes}}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -140,6 +141,10 @@ class RecipeComponent extends Component {
                                         <label>Notes (Optional)</label>
                                         <Field className='form-control' type='text' name='notes' />
                                     </fieldset>
+                                    {/* <fieldset className='form-group'>
+                                        <label>Meal Type (Optional)</label>
+                                        <Field className='form-control' type='text' name='mealType' />
+                                    </fieldset> */}
                                     <button type="submit" className='btn btn-success'>Save</button>
                                 </Form>
                             )

@@ -84,6 +84,7 @@ class ListRecipesComponent extends Component{
                                         <th>Directions</th>
                                         <th>Ingredients</th>
                                         <th>Notes</th>
+                                        {/* <th>Meal Type</th> */}
                                         <th>Edit</th>
                                         <th>Delete</th>
 
@@ -100,6 +101,7 @@ class ListRecipesComponent extends Component{
                                                 <td>{recipe.directions}</td>
                                                 <td>{recipe.ingredients}</td>
                                                 <td>{recipe.notes}</td>
+                                                {/* <td>{recipe.mealType}</td> */}
                                                 <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)} >Edit</button></td>
                                                 <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)} >Delete</button></td>
                                                 <td><button className="btn btn-success" value="Print" onClick={() => this.printRecipeClicked()}>Print</button></td>

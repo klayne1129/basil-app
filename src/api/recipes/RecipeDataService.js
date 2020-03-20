@@ -18,20 +18,21 @@ class RecipeDataService {
         return Axios.get(`${JPA_API_URL}/users/${name}/recipes/${id}`)   
     }
 
-    //delete recipe
+    //deletes recipe
     deleteRecipe(name, id) {
         // console.log('executed service')
         //tell promise to get desired url we created in java and eclipse
         return Axios.delete(`${JPA_API_URL}/users/${name}/recipes/${id}`)   
     }
 
-    //
+    //updates recipe
     updateRecipe(name, id, recipe) {
         // console.log('executed service')
         //tell promise to get desired url we created in java and eclipse
         return Axios.put(`${JPA_API_URL}/users/${name}/recipes/${id}`, recipe)   
     }
 
+        //creates new recipe
     createRecipe(name, recipe) {
         // console.log('executed service')
         //tell promise to get desired url we created in java and eclipse
