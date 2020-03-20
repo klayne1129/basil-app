@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import moment from 'moment'
+import moment from 'moment'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import AuthenticationService from './AuthenticationService.js'
@@ -30,6 +30,7 @@ class RecipeComponent extends Component {
         }
 
         let username = AuthenticationService.getLoggedInUser()
+
         RecipeDataService.retrieveRecipe(username, this.state.id)
             .then(response => this.setState({
                 name: response.data.name,
@@ -66,6 +67,7 @@ class RecipeComponent extends Component {
     onSubmit(values) {
 
         let username = AuthenticationService.getLoggedInUser()
+
         let recipe = {
             id: this.state.id,
             name: values.name,
@@ -73,15 +75,14 @@ class RecipeComponent extends Component {
             ingredients: values.ingredients,
             notes: values.notes
         }
+
         if (this.state.id === -1) {
-            RecipeDataService.createeRecipe(username, recipe)
-                .then(() => { this.props.history.push(`/recipes`) })
+            RecipeDataService.createRecipe(username, recipe)
+                .then(() => this.props.history.push(`/recipes`))
 
         } else {
             RecipeDataService.updateRecipe(username, this.state.id, recipe)
-                .then(() => { this.props.history.push(`/recipes`) })
-
-        
+                .then(() => this.props.history.push(`/recipes`))
         }
 
     }
@@ -103,7 +104,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ name, directions, ingredients, notes }}
+                        initialValues={{name, directions, ingredients, notes}}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -114,7 +115,7 @@ class RecipeComponent extends Component {
                         validateonBlur={false}
                         validate={this.validate}
                         enableReinitialize={true}
-                    >
+                        >
                         {
                             (props) => (
                                 <Form>
@@ -138,6 +139,17 @@ class RecipeComponent extends Component {
                                     <fieldset className='form-group'>
                                         <label>Notes (Optional)</label>
                                         <Field className='form-control' type='text' name='notes' />
+                                    </fieldset>
+                                    <fieldset className='form-group'>
+                                        <label>Meal Type</label>
+                                        <select name="mealType">
+                                            <option value="">* Select One *</option>
+                                            <option value="1">Breakfast</option>
+                                            <option value="2">Lunch</option>
+                                            <option value="3">Dinner</option>
+                                            <option value="3">Snack</option>
+                                            <option value="3">Dessert</option>
+                                        </select>
                                     </fieldset>
                                     <button type="submit" className='btn btn-success'>Save</button>
                                 </Form>

@@ -86,6 +86,7 @@ class ListRecipesComponent extends Component{
                                         <th>Notes</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
+                                        <th>Print</th>
 
                                     </tr>
                                 </thead>
