@@ -87,6 +87,7 @@ class ListRecipesComponent extends Component{
                                         {/* <th>Meal Type</th> */}
                                         <th>Edit</th>
                                         <th>Delete</th>
+                                        <th>Print</th>
 
                                     </tr>
                                 </thead>

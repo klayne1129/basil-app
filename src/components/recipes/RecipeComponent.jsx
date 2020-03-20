@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import moment from 'moment'
+import moment from 'moment'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import AuthenticationService from './AuthenticationService.js'
@@ -30,6 +30,7 @@ class RecipeComponent extends Component {
         }
 
         let username = AuthenticationService.getLoggedInUser()
+
         RecipeDataService.retrieveRecipe(username, this.state.id)
             .then(response => this.setState({
                 name: response.data.name,
@@ -68,6 +69,7 @@ class RecipeComponent extends Component {
     onSubmit(values) {
 
         let username = AuthenticationService.getLoggedInUser()
+
         let recipe = {
             id: this.state.id,
             name: values.name,
@@ -75,15 +77,14 @@ class RecipeComponent extends Component {
             ingredients: values.ingredients,
             notes: values.notes
         }
+
         if (this.state.id === -1) {
-            RecipeDataService.createeRecipe(username, recipe)
-                .then(() => { this.props.history.push(`/recipes`) })
+            RecipeDataService.createRecipe(username, recipe)
+                .then(() => this.props.history.push(`/recipes`))
 
         } else {
             RecipeDataService.updateRecipe(username, this.state.id, recipe)
-                .then(() => { this.props.history.push(`/recipes`) })
-
-        
+                .then(() => this.props.history.push(`/recipes`))
         }
 
     }
@@ -116,7 +117,7 @@ class RecipeComponent extends Component {
                         validateonBlur={false}
                         validate={this.validate}
                         enableReinitialize={true}
-                    >
+                        >
                         {
                             (props) => (
                                 <Form>
