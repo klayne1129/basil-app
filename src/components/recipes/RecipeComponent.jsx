@@ -142,10 +142,17 @@ class RecipeComponent extends Component {
                                         <label>Notes (Optional)</label>
                                         <Field className='form-control' type='text' name='notes' />
                                     </fieldset>
-                                    {/* <fieldset className='form-group'>
-                                        <label>Meal Type (Optional)</label>
-                                        <Field className='form-control' type='text' name='mealType' />
-                                    </fieldset> */}
+                                    <fieldset className='form-group'>
+                                        <label>Meal Type</label>
+                                            <select name='mealType'>
+                                                <option value=''>Select One</option>
+                                                <option value='breakfast'>Breakfast</option>
+                                                <option value='lunch'>Lunch</option>
+                                                <option value='dinner'>Dinner</option>
+                                                <option value='snack'>Snack</option>
+                                                <option value='desser'>Dessert</option>
+                                            </select>
+                                    </fieldset>
                                     <button type="submit" className='btn btn-success'>Save</button>
                                 </Form>
                             )

@@ -5,6 +5,9 @@ import {JPA_API_URL} from '../../Constants.js'
 class RecipeDataService {
     //passing name as a parameter makes it customizable for users
 
+    
+
+
     //retrieves all the recipes the current user has saved.
     retrieveAllRecipes(name) {
         // console.log('executed service')
@@ -38,6 +41,7 @@ class RecipeDataService {
         //tell promise to get desired url created in java/eclipses
         return Axios.post(`${JPA_API_URL}/users/${name}/recipes`, recipe)   
     }
+
 
 }
 
