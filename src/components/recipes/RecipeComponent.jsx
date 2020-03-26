@@ -5,6 +5,7 @@ import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 
 
+
 class RecipeComponent extends Component {
     constructor(props) {
         super(props)
@@ -142,7 +143,9 @@ class RecipeComponent extends Component {
                                         <label>Notes (Optional)</label>
                                         <Field className='form-control' type='text' name='notes' />
                                     </fieldset>
-                                    <fieldset className='form-group'>
+ 
+                                    
+                                    {/* <fieldset className='form-group'>
                                         <label>Meal Type</label>
                                             <select name='mealType'>
                                                 <option value=''>Select One</option>
@@ -151,8 +154,8 @@ class RecipeComponent extends Component {
                                                 <option value='dinner'>Dinner</option>
                                                 <option value='snack'>Snack</option>
                                                 <option value='desser'>Dessert</option>
-                                            </select>
-                                    </fieldset>
+                                             </select>
+                                    </fieldset> */}
                                     <button type="submit" className='btn btn-success'>Save</button>
                                 </Form>
                             )
