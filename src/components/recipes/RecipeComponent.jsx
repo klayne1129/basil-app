@@ -6,6 +6,7 @@ import AuthenticationService from './AuthenticationService.js'
 
 
 
+
 class RecipeComponent extends Component {
     constructor(props) {
         super(props)
@@ -20,7 +21,7 @@ class RecipeComponent extends Component {
         }
         this.onSubmit = this.onSubmit.bind(this)
         this.validate = this.validate.bind(this)
-        this.handleChange = this.handleChange.bind(this);
+       
 
     }
     //call api's in this function
@@ -44,10 +45,7 @@ class RecipeComponent extends Component {
             }))
     }
 
-    //for dropdown menu
-    handleChange(event) {
-        this.setState({mealType: event.target.value});
-      }
+    
 
     // if no value present 'enter blank'
     // custom error message using errorMessage props
@@ -145,29 +143,29 @@ class RecipeComponent extends Component {
 
                                     <fieldset className='form-group'>
                                         <label>Directions</label>
-                                        <Field className='form-control' type='text' name='directions' />
+                                        <Field as='textarea' className='form-control' type='text' name='directions' id='textBox' />
                                     </fieldset>
 
                                     <fieldset className='form-group'>
                                         <label>Ingredients</label>
-                                        <Field className='form-control' type='text' name='ingredients' />
+                                        <Field as='textarea' className='form-control' type='text' name='ingredients' id='textBox'/>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
                                         <label>Notes (Optional)</label>
-                                        <Field className='form-control' type='text' name='notes' />
+                                        <Field as='textarea' className='form-control' type='text' name='notes' id='textBox'/>
                                     </fieldset>
  
                                     <fieldset className='form-group'>
                                         <label>Meal Type</label>
-                                            <select name='mealType' onChange={this.handleChange}>
+                                            <Field as='select' name='mealType'>
                                                 <option selected value='selectOne'>Select One</option>
                                                 <option value='breakfast'>Breakfast</option>
                                                 <option value='lunch'>Lunch</option>
                                                 <option value='dinner'>Dinner</option>
                                                 <option value='snack'>Snack</option>
                                                 <option value='dessert'>Dessert</option>
-                                             </select>
+                                             </Field>
                                     </fieldset>
 
                                     <button type="submit" className='btn btn-success'>Save</button>
@@ -185,3 +183,4 @@ class RecipeComponent extends Component {
 }
 
 export default RecipeComponent
+

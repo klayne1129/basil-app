@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 
+
 class ListRecipesComponent extends Component{
     
     constructor(props){

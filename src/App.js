@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import Counter from './components/counter/Counter'
 // import ToDoApp from './components/todo/ToDoApp'
-import RecipeApp from './components/recipes/RecipeApp'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import RecipeApp from './components/recipes/RecipeApp';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
  
