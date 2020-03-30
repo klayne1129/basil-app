@@ -13,38 +13,40 @@ public class Recipe extends AbstractEntity {
 
 	
 	
-	@ManyToOne
-	private MealType mealType;
 	
+	private String mealType;
 	private String username;
-	private String name;
+	private String title;
 	private String directions;
 	private String ingredients;
 	private String notes;
 
 	
-	
+	//constructors
 
-	public Recipe(MealType mealType, String username, String name, String directions, String ingredients,
-			String notes) {
+	
+	
+	public Recipe () {
+		
+	}
+	
+	public Recipe(String mealType, String username, String title, String directions, String ingredients, String notes) {
 		super();
 		this.mealType = mealType;
 		this.username = username;
-		this.name = name;
+		this.title = title;
 		this.directions = directions;
 		this.ingredients = ingredients;
 		this.notes = notes;
 	}
 
-	protected Recipe() {
-		
-	}
+	// getters and setters
 
-	public MealType getMealType() {
+	public String getMealType() {
 		return mealType;
 	}
 
-	public void setMealType(MealType mealType) {
+	public void setMealType(String mealType) {
 		this.mealType = mealType;
 	}
 
@@ -56,12 +58,12 @@ public class Recipe extends AbstractEntity {
 		this.username = username;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getDirections() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import moment from 'moment'
+
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import AuthenticationService from './AuthenticationService.js'
@@ -12,13 +12,15 @@ class RecipeComponent extends Component {
 
         this.state = {
             id: this.props.match.params.id,
-            name: '',
+            title: '',
             directions: '',
             ingredients: '',
-            notes: ''
+            notes: '',
+            mealType: 'selectOne'
         }
         this.onSubmit = this.onSubmit.bind(this)
         this.validate = this.validate.bind(this)
+        this.handleChange = this.handleChange.bind(this);
 
     }
     //call api's in this function
@@ -34,20 +36,29 @@ class RecipeComponent extends Component {
 
         RecipeDataService.retrieveRecipe(username, this.state.id)
             .then(response => this.setState({
-                name: response.data.name,
+                title: response.data.title,
                 directions: response.data.directions,
                 ingredients: response.data.ingredients,
                 notes: response.data.notes,
-               
+                mealType: response.data.mealType
             }))
     }
 
+    //for dropdown menu
+    handleChange(event) {
+        this.setState({mealType: event.target.value});
+      }
+
+    // if no value present 'enter blank'
+    // custom error message using errorMessage props
+    //errororMessage below unde render()
+
     validate(values) {
         let errors = {}
-        if (!values.name) {
-            errors.name = 'Enter name'
-        } else if (values.name.length < 2) {
-            errors.directions = 'Name must be at least 2 characters in length'
+        if (!values.title) {
+            errors.title = 'Enter title'
+        } else if (values.title.length < 2) {
+            errors.title = 'Title must be at least 2 characters in length'
         }
 
         if (!values.directions) {
@@ -59,12 +70,11 @@ class RecipeComponent extends Component {
         if (!values.ingredients) {
             errors.ingredients = 'Enter ingredients'
         } else if (values.ingredients.length < 2) {
-            errors.directions = 'Ingredients must be at least 2 characters in length'
+            errors.ingredients = 'Ingredients must be at least 2 characters in length'
         }
 
         return errors
     }
-    //add momment later
 
     //if successfuly updated redirect to list recipes page 
     onSubmit(values) {
@@ -73,10 +83,11 @@ class RecipeComponent extends Component {
 
         let recipe = {
             id: this.state.id,
-            name: values.name,
+            title: values.title,
             directions: values.directions,
             ingredients: values.ingredients,
-            notes: values.notes
+            notes: values.notes,
+            mealType: values.mealType
         }
 
         if (this.state.id === -1) {
@@ -92,7 +103,7 @@ class RecipeComponent extends Component {
 
     render() {
         //destructuring 
-        let { name, directions, ingredients, notes} = this.state
+        let { title, directions, ingredients, notes, mealType} = this.state
 
         return (
 
@@ -107,7 +118,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ name, directions, ingredients, notes}}
+                        initialValues={{ title, directions, ingredients, notes, mealType}}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -122,12 +133,14 @@ class RecipeComponent extends Component {
                         {
                             (props) => (
                                 <Form>
-                                    <ErrorMessage name='name' component='div' className='alert alert-warning' />
+
+                                    <ErrorMessage name='title' component='div' className='alert alert-warning' />
                                     <ErrorMessage name='directions' component='div' className='alert alert-warning' />
                                     <ErrorMessage name='ingredients' component='div' className='alert alert-warning' />
+
                                     <fieldset className='form-group'>
-                                        <label>Name</label>
-                                        <Field className='form-control' type='text' name='name' />
+                                        <label>Title</label>
+                                        <Field className='form-control' type='text' name='title' />
                                     </fieldset>
 
                                     <fieldset className='form-group'>
@@ -139,24 +152,26 @@ class RecipeComponent extends Component {
                                         <label>Ingredients</label>
                                         <Field className='form-control' type='text' name='ingredients' />
                                     </fieldset>
+
                                     <fieldset className='form-group'>
                                         <label>Notes (Optional)</label>
                                         <Field className='form-control' type='text' name='notes' />
                                     </fieldset>
  
-                                    
-                                    {/* <fieldset className='form-group'>
+                                    <fieldset className='form-group'>
                                         <label>Meal Type</label>
-                                            <select name='mealType'>
-                                                <option value=''>Select One</option>
+                                            <select name='mealType' onChange={this.handleChange}>
+                                                <option selected value='selectOne'>Select One</option>
                                                 <option value='breakfast'>Breakfast</option>
                                                 <option value='lunch'>Lunch</option>
                                                 <option value='dinner'>Dinner</option>
                                                 <option value='snack'>Snack</option>
-                                                <option value='desser'>Dessert</option>
+                                                <option value='dessert'>Dessert</option>
                                              </select>
-                                    </fieldset> */}
+                                    </fieldset>
+
                                     <button type="submit" className='btn btn-success'>Save</button>
+
                                 </Form>
                             )
                         }

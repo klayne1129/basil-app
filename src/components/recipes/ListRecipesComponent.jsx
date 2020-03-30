@@ -80,14 +80,14 @@ class ListRecipesComponent extends Component{
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Title</th>
                                         <th>Directions</th>
                                         <th>Ingredients</th>
                                         <th>Notes</th>
-                                        {/* <th>Meal Type(coming soon)</th> */}
+                                        <th>Meal Type</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
-                                        <th>Print</th>
+                                        {/* <th>Print</th> */}
 
                                     </tr>
                                 </thead>
@@ -98,14 +98,14 @@ class ListRecipesComponent extends Component{
 
                                         
                                             <tr key={recipe.id}>
-                                                <td>{recipe.name}</td>
+                                                <td>{recipe.title}</td>
                                                 <td>{recipe.directions}</td>
                                                 <td>{recipe.ingredients}</td>
                                                 <td>{recipe.notes}</td>
-                                                {/* <td>{recipe.mealType}</td> */}
+                                                <td>{recipe.mealType}</td>
                                                 <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)} >Edit</button></td>
                                                 <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)} >Delete</button></td>
-                                                <td><button className="btn btn-success" value="Print" onClick={() => this.printRecipeClicked()}>Print</button></td>
+                                                {/* <td><button className="btn btn-success" value="Print" onClick={() => this.printRecipeClicked()}>Print</button></td> */}
                                             
                                             </tr>
                                         )
