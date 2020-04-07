@@ -153,7 +153,7 @@ class RecipeComponent extends Component {
 
                                     <fieldset className='form-group'>
                                         <label>Notes (Optional)</label>
-                                        <Field as='textarea' className='form-control' type='text' name='notes' id='textBox'/>
+                                        <Field className='form-control' type='text' name='notes' id='textBox'/>
                                     </fieldset>
  
                                     <fieldset className='form-group'>

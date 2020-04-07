@@ -12,10 +12,10 @@ class ListRecipesComponent extends Component{
             message: null
         }
         this.updatrecipeClicked = this.updateRecipeClicked.bind(this);
+        this.viewRecipeClicked = this.viewRecipeClicked.bind(this);
         this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this);
         this.refreshRecipes = this.refreshRecipes.bind(this);
         this.addRecipeClicked = this.addRecipeClicked.bind(this);
-        this.printRecipeClicked = this.printRecipeClicked.bind(this);
     }
 
     //dont call initial api in the constructor
@@ -64,13 +64,15 @@ class ListRecipesComponent extends Component{
         this.props.history.push(`/recipes/${id}`)
     }
 
+    viewRecipeClicked(id) {
+        console.log('update ' + id)
+        this.props.history.push(`/view/${id}`)
+    }
+
     //Right now when the button is clicked it just wants to print the entire list page
     //should redirect to a single recipe page and THEN print
 
-    printRecipeClicked(id) {
-        console.log("print")
-        window.print();
-    }
+    
 
     render() {
         return  (   
@@ -86,6 +88,7 @@ class ListRecipesComponent extends Component{
                                         <th>Ingredients</th>
                                         <th>Notes</th>
                                         <th>Meal Type</th>
+                                        <th>View</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                         {/* <th>Print</th> */}
@@ -104,6 +107,7 @@ class ListRecipesComponent extends Component{
                                                 <td>{recipe.ingredients}</td>
                                                 <td>{recipe.notes}</td>
                                                 <td>{recipe.mealType}</td>
+                                                <td><button className="btn btn-success" onClick={() => this.viewRecipeClicked(recipe.id)} >View</button></td>
                                                 <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)} >Edit</button></td>
                                                 <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)} >Delete</button></td>
                                                 {/* <td><button className="btn btn-success" value="Print" onClick={() => this.printRecipeClicked()}>Print</button></td> */}
