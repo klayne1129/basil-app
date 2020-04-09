@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import AuthenticatedRoute from './AuthenticatedRoute.jsx'
 import ErrorComponent from './ErrorComponent.jsx'
-import FooterComponent from './FooterComponent.jsx'
+// import FooterComponent from './FooterComponent.jsx'
 import HeaderComponent from './HeaderComponent.jsx'
 import ListRecipesComponent from './ListRecipesComponent.jsx'
 import LoginComponent from './LoginComponent.jsx'
@@ -10,6 +10,7 @@ import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import RecipeComponent from './RecipeComponent.jsx'
 import ViewRecipeComponent from './ViewRecipeComponent.jsx'
+import SearchComponent from './SearchComponent.jsx'
 
 
 
@@ -35,9 +36,10 @@ class RecipeApp extends Component {
                             <AuthenticatedRoute path="/recipes" component={ListRecipesComponent}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
                             <AuthenticatedRoute path="/view/:id" component={ViewRecipeComponent}/>
+                            <AuthenticatedRoute path="/search" component={SearchComponent}/>
                             <Route component={ErrorComponent}/>
                         </Switch>
-                        <FooterComponent/>
+                        {/* <FooterComponent/> */}
                     </>
                 </Router>
                 {/* <LoginComponent/>

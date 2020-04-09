@@ -84,8 +84,6 @@ class ListRecipesComponent extends Component{
                                 <thead>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Directions</th>
-                                        <th>Ingredients</th>
                                         <th>Notes</th>
                                         <th>Meal Type</th>
                                         <th>View</th>
@@ -103,8 +101,6 @@ class ListRecipesComponent extends Component{
                                         
                                             <tr key={recipe.id}>
                                                 <td>{recipe.title}</td>
-                                                <td>{recipe.directions}</td>
-                                                <td>{recipe.ingredients}</td>
                                                 <td>{recipe.notes}</td>
                                                 <td>{recipe.mealType}</td>
                                                 <td><button className="btn btn-success" onClick={() => this.viewRecipeClicked(recipe.id)} >View</button></td>
