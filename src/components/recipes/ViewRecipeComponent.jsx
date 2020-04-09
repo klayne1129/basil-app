@@ -58,10 +58,14 @@ class ViewRecipeComponent extends Component {
 
                     <div>
                         <h2>Ingredients:</h2>
-                        <p><ul>{this.state.ingredients}</ul></p>
+                        <p className='lead'><ul>{this.state.ingredients.split('\n').map((item, key) => {
+                            return <li key={key}>{item}</li>
+                        })}</ul></p>
 
                         <h2>Steps:</h2>
-                        <p><ul>{this.state.directions}</ul></p>
+                        <p className='lead'><ol>{this.state.directions.split('\n').map((item, key) => {
+                            return <li key={key}>{item}</li>
+                        })}</ol></p>
 
                         <h2>Notes:</h2>
                         <p><ul>{this.state.notes}</ul></p>

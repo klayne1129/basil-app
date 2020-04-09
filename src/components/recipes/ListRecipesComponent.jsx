@@ -91,7 +91,7 @@ class ListRecipesComponent extends Component{
                                         <th>View</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
-                                        {/* <th>Print</th> */}
+                                    
 
                                     </tr>
                                 </thead>

@@ -9,7 +9,7 @@ import LoginComponent from './LoginComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import RecipeComponent from './RecipeComponent.jsx'
-import ViewRecipeComponent from './ViewRecipeComponent'
+import ViewRecipeComponent from './ViewRecipeComponent.jsx'
 
 
 
