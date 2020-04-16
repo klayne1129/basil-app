@@ -1,15 +1,16 @@
 package org.launchcode.restfullwebservices.recipe.models;
 
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.Lob;
+
+
+
 
 @Entity
 public class Recipe extends AbstractEntity {
 
-//	@ManyToOne
-//	private MealType mealType;
+
 
 	
 	
@@ -17,8 +18,14 @@ public class Recipe extends AbstractEntity {
 	private String mealType;
 	private String username;
 	private String title;
+	
+	@Lob
 	private String directions;
+	
+	@Lob
 	private String ingredients;
+	
+	@Lob
 	private String notes;
 
 	
