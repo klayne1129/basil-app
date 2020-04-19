@@ -28,6 +28,8 @@ import org.launchcode.restfullwebservices.jwt.JwtUserDetails;
 @CrossOrigin(origins="http://localhost:4200")
 public class JwtAuthenticationRestController {
 
+	
+	//contains the important methods needed to handle our resources
   @Value("${jwt.http.request.header}")
   private String tokenHeader;
 

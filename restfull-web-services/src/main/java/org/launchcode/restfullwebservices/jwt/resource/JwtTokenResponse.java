@@ -3,6 +3,8 @@ package org.launchcode.restfullwebservices.jwt.resource;
 import java.io.Serializable;
 
 public class JwtTokenResponse implements Serializable {
+	
+	//has the token
 
   private static final long serialVersionUID = 8317676219297719109L;
 
