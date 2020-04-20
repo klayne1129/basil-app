@@ -74,7 +74,7 @@ recipeList() {
             || (filterBy === 'ingredients' && currentRecipe.ingredients.toLowerCase().includes(searchterm.toLowerCase()))
             || (filterBy === 'mealType' && currentRecipe.mealType.toLowerCase().includes(searchterm.toLowerCase())))
         return <Recipe recipe={currentRecipe} key={i} />
-    })
+    });
 }
 //This will handle any changes to the search category
 handleFilter(e) {

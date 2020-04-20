@@ -20,7 +20,7 @@ class RecipeComponent extends Component {
             mealType: 'selectOne',
             image: ''
         }
-        this.onChangeImage = this.onChangeImage.bind(this);
+        // this.onChangeImage = this.onChangeImage.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
         this.validate = this.validate.bind(this)
        
@@ -77,9 +77,9 @@ class RecipeComponent extends Component {
         return errors
     }
 
-    onChangeImage(e) {
-        this.setState({image: e.target.value})
-      }
+    // onChangeImage(e) {
+    //     this.setState({image: e.target.value})
+    //   }
 
     //if successfuly updated redirect to list recipes page 
     onSubmit(values) {
@@ -176,14 +176,10 @@ class RecipeComponent extends Component {
                                              </Field>
                                     </fieldset>
 
-                                    <div className="form-group">
+                                    <fieldset className="form-group">
                                         <label>Image/GIF URL</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            value={this.state.image}
-                                            onChange={this.onChangeImage}/>
-                                    </div>
+                                        <Field type="text" className="form-control" name='image'/>
+                                    </fieldset>
 
                                     <button type="submit" className='btn btn-success'>Save</button>
 
