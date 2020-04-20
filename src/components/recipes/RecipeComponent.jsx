@@ -74,6 +74,10 @@ class RecipeComponent extends Component {
             errors.ingredients = 'Ingredients must be at least 2 characters in length'
         }
 
+        if (values.mealType === "selectOne") {
+            errors.mealType = 'Select a meal type'
+        } 
+
         return errors
     }
 
@@ -143,6 +147,7 @@ class RecipeComponent extends Component {
                                     <ErrorMessage name='title' component='div' className='alert alert-warning' />
                                     <ErrorMessage name='directions' component='div' className='alert alert-warning' />
                                     <ErrorMessage name='ingredients' component='div' className='alert alert-warning' />
+                                    <ErrorMessage name='mealType' component='div' className='alert alert-warning' />
 
                                     <fieldset className='form-group'>
                                         <label>Title</label>
@@ -152,11 +157,13 @@ class RecipeComponent extends Component {
                                     <fieldset className='form-group'>
                                         <label>Directions</label>
                                         <Field as='textarea' className='form-control' type='text' name='directions' id='textBox' />
+                                        <p>Please press enter after each step except the last step. Each step should be on it's own line.</p>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
                                         <label>Ingredients</label>
                                         <Field as='textarea' className='form-control' type='text' name='ingredients' id='textBox'/>
+                                        <p>Please press enter after each ingredient except the last one. Each ingredient should be on it's own line.</p>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
@@ -177,7 +184,7 @@ class RecipeComponent extends Component {
                                     </fieldset>
 
                                     <fieldset className="form-group">
-                                        <label>Image/GIF URL</label>
+                                        <label>Image URL(Optional)</label>
                                         <Field type="text" className="form-control" name='image'/>
                                     </fieldset>
 
