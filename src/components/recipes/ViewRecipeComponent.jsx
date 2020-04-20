@@ -12,7 +12,8 @@ class ViewRecipeComponent extends Component {
             directions: '',
             ingredients: '',
             notes: '',
-            mealType: ''
+            mealType: '',
+            image: ''
         }
         this.refreshRecipe = this.refreshRecipe.bind(this);
         this.printRecipeClicked = this.printRecipeClicked.bind(this);
@@ -37,7 +38,8 @@ class ViewRecipeComponent extends Component {
                 directions: response.data.directions,
                 ingredients: response.data.ingredients,
                 notes: response.data.notes,
-                mealType: response.data.mealType
+                mealType: response.data.mealType,
+                image: response.data.image
             }))
     }
 
@@ -54,6 +56,7 @@ class ViewRecipeComponent extends Component {
 
                     <div>
                         <h1>{this.state.title}</h1>
+                        <img className='img-thumbnail viewimage'src={this.state.image} alt='recipe'></img>
                     </div>
 
                     <div>

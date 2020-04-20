@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 //
 @Service
@@ -26,7 +29,25 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 	        "$2a$10$jLVKXX/gIuC1DPaton7H7OPwJM5NJtY57WUqPrZNxbR/FfWiQ/C4C", "ROLE_USER_2"));
 	  }
 
-  //when  spring security gives you a username you currently find the details of the user 
+  
+  	
+  	
+ 
+  	
+  	//might need to fix id generation in JwtUserDetails class
+  	//did not like the original return statement.... need to add a post bit to controller
+  	//need to add annotation to 
+  	
+//  	public UserJpaRepository save(JwtUserDetails user) {
+//  		JwtUserDetails newUser = new JwtUserDetails();
+//  		newUser.setUsername(user.getUsername());
+//		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+//		return (UserJpaRepository) userJpaRepository.save(newUser);
+//  	}
+  	
+  
+//Original code:
+  //when  spring security gives you a username it finds the details of the user 
   //from the static list above and return it back in the form of JwtUserDetails
   //reminder JwtUserDetail implements UserDetails interface by springSecurity
   @Override

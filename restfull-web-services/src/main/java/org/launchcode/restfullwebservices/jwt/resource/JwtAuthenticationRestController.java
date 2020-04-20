@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.launchcode.restfullwebservices.jwt.JwtInMemoryUserDetailsService;
 import org.launchcode.restfullwebservices.jwt.JwtTokenUtil;
 import org.launchcode.restfullwebservices.jwt.JwtUserDetails;
 
@@ -30,6 +30,7 @@ public class JwtAuthenticationRestController {
 
 	
 	//contains the important methods needed to handle our resources
+	//contains a refresh and create authenticated token picked up from the property file
   @Value("${jwt.http.request.header}")
   private String tokenHeader;
 
@@ -41,7 +42,9 @@ public class JwtAuthenticationRestController {
 
   @Autowired
   private UserDetailsService jwtInMemoryUserDetailsService;
-
+  
+  //uses spring security to check if the username and password is right.
+  //if theses are correct it loads the user details, generate the JWT token and return it back
   @RequestMapping(value = "${jwt.get.token.uri}", method = RequestMethod.POST)
   public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtTokenRequest authenticationRequest)
       throws AuthenticationException {
@@ -55,6 +58,9 @@ public class JwtAuthenticationRestController {
     return ResponseEntity.ok(new JwtTokenResponse(token));
   }
 
+  
+  //checks if token is valid, gets user details and checks the expiration date
+  //if everything is OK it creates JWT and sends it back
   @RequestMapping(value = "${jwt.refresh.token.uri}", method = RequestMethod.GET)
   public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
     String authToken = request.getHeader(tokenHeader);

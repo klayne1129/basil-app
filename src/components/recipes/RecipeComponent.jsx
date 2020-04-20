@@ -17,8 +17,10 @@ class RecipeComponent extends Component {
             directions: '',
             ingredients: '',
             notes: '',
-            mealType: 'selectOne'
+            mealType: 'selectOne',
+            image: ''
         }
+        this.onChangeImage = this.onChangeImage.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
         this.validate = this.validate.bind(this)
        
@@ -41,7 +43,8 @@ class RecipeComponent extends Component {
                 directions: response.data.directions,
                 ingredients: response.data.ingredients,
                 notes: response.data.notes,
-                mealType: response.data.mealType
+                mealType: response.data.mealType,
+                image: response.data.image
             }))
     }
 
@@ -74,6 +77,10 @@ class RecipeComponent extends Component {
         return errors
     }
 
+    onChangeImage(e) {
+        this.setState({image: e.target.value})
+      }
+
     //if successfuly updated redirect to list recipes page 
     onSubmit(values) {
 
@@ -85,7 +92,8 @@ class RecipeComponent extends Component {
             directions: values.directions,
             ingredients: values.ingredients,
             notes: values.notes,
-            mealType: values.mealType
+            mealType: values.mealType,
+            image: values.image
         }
 
         if (this.state.id === -1) {
@@ -101,7 +109,7 @@ class RecipeComponent extends Component {
 
     render() {
         //destructuring 
-        let { title, directions, ingredients, notes, mealType} = this.state
+        let { title, directions, ingredients, notes, mealType, image} = this.state
 
         return (
 
@@ -116,7 +124,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ title, directions, ingredients, notes, mealType}}
+                        initialValues={{ title, directions, ingredients, notes, mealType, image}}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -167,6 +175,15 @@ class RecipeComponent extends Component {
                                                 <option value='dessert'>Dessert</option>
                                              </Field>
                                     </fieldset>
+
+                                    <div className="form-group">
+                                        <label>Image/GIF URL</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            value={this.state.image}
+                                            onChange={this.onChangeImage}/>
+                                    </div>
 
                                     <button type="submit" className='btn btn-success'>Save</button>
 

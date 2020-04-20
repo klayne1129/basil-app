@@ -16,6 +16,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.DefaultClock;
 
+
+// this file creates and processes JWT tokens. Updates and refreshes.
 @Component
 public class JwtTokenUtil implements Serializable {
 

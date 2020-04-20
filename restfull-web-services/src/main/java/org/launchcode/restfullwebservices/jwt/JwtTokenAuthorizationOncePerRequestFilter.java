@@ -22,6 +22,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import io.jsonwebtoken.ExpiredJwtException;
 
 //This filter helps authorizes the JWT token at every request
+//checks if user is valid. If valid loads user details and set it into the SecurityContextHolder.getContext()
+//allows all the other servlets and resources to access the user details
 
 @Component
 public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFilter {
