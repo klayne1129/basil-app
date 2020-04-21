@@ -14,6 +14,7 @@ public class Recipe extends AbstractEntity {
 	private String username;
 	private String title;
 	private String image;
+	private String tags;
 	
 	@Lob
 	private String directions;
@@ -34,19 +35,26 @@ public class Recipe extends AbstractEntity {
 	}
 
 
-	public Recipe(String mealType, String username, String title, String image, String directions, String ingredients,
-			String notes) {
+
+
+	public Recipe(String mealType, String username, String title, String image, String tags, String directions,
+			String ingredients, String notes) {
 		super();
 		this.mealType = mealType;
 		this.username = username;
 		this.title = title;
 		this.image = image;
+		this.tags = tags;
 		this.directions = directions;
 		this.ingredients = ingredients;
 		this.notes = notes;
 	}
 
+
+
+
 	// getters and setters
+	
 
 	public String getMealType() {
 		return mealType;
@@ -117,7 +125,16 @@ public class Recipe extends AbstractEntity {
 		this.notes = notes;
 	}
 	
-	
+	public String getTags() {
+		return tags;
+	}
+
+
+
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
 
 
 

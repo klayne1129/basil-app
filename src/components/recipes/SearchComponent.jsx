@@ -69,9 +69,11 @@ recipeList() {
 
         if ((filterBy === 'all' && (currentRecipe.title.toLowerCase().includes(searchterm.toLowerCase()) 
                                  || currentRecipe.ingredients.toLowerCase().includes(searchterm.toLowerCase())
+                                 || currentRecipe.tags.toLowerCase().includes(searchterm.toLowerCase())
                                  || currentRecipe.mealType.toLowerCase().includes(searchterm.toLowerCase()))) 
             || (filterBy === 'title' && currentRecipe.title.toLowerCase().includes(searchterm.toLowerCase()))
             || (filterBy === 'ingredients' && currentRecipe.ingredients.toLowerCase().includes(searchterm.toLowerCase()))
+            || (filterBy === 'tags' && currentRecipe.tags.toLowerCase().includes(searchterm.toLowerCase()))
             || (filterBy === 'mealType' && currentRecipe.mealType.toLowerCase().includes(searchterm.toLowerCase())))
         return <Recipe recipe={currentRecipe} key={i} />
     });
@@ -105,7 +107,7 @@ handleTerm(e) {
                             value="breakfast" 
                             checked={this.state.filterByTerm === "breakfast"}
                             onChange={this.handleTerm}
-                            variant='primary'>
+                            variant='dark'>
                     Breakfast
                     </ToggleButton>
                     <ToggleButton type="radio" 
@@ -113,7 +115,7 @@ handleTerm(e) {
                             value="lunch" 
                             checked={this.state.filterByTerm === "lunch"}
                             onChange={this.handleTerm}
-                            variant='primary'>
+                            variant='dark'>
                     Lunch
                     </ToggleButton>
                     <ToggleButton type="radio" 
@@ -121,7 +123,7 @@ handleTerm(e) {
                             value="dessert" 
                             checked={this.state.filterByTerm === "dessert"}
                             onChange={this.handleTerm}
-                            variant='primary'>
+                            variant='dark'>
                     Desserts
                     </ToggleButton>
                     <ToggleButton type="radio" 
@@ -129,14 +131,14 @@ handleTerm(e) {
                             value="snack" 
                             checked={this.state.filterByTerm === "snack"}
                             onChange={this.handleTerm}
-                            variant='primary'>
+                            variant='dark'>
                     Snacks
                     </ToggleButton><ToggleButton type="radio" 
                             name="radio" 
                             value="dinner" 
                             checked={this.state.filterByTerm === "dinner"}
                             onChange={this.handleTerm}
-                            variant='primary'>
+                            variant='dark'>
                     Dinner
                     </ToggleButton>
                     
@@ -174,7 +176,7 @@ handleTerm(e) {
                                 value="all" 
                                 checked={this.state.filterByField === "all"}
                                 onChange={this.handleFilter}
-                                variant='success'>
+                                variant='dark'>
                                     
                         All
                         </ToggleButton>
@@ -184,7 +186,7 @@ handleTerm(e) {
                                 value="title" 
                                 checked={this.state.filterByField === "title"}
                                 onChange={this.handleFilter}
-                                variant='success'>
+                                variant='dark'>
                         Name
                         </ToggleButton>
                         <ToggleButton type="radio" 
@@ -193,7 +195,7 @@ handleTerm(e) {
                                 value="ingredients" 
                                 checked={this.state.filterByField === "ingredients"}
                                 onChange={this.handleFilter}
-                                variant='success'>
+                                variant='dark'>
                         Ingredients
                         </ToggleButton>
                         <ToggleButton type="radio" 
@@ -202,8 +204,17 @@ handleTerm(e) {
                                 value="mealType" 
                                 checked={this.state.filterByField === "mealType"}
                                 onChange={this.handleFilter}
-                                variant='success'>
+                                variant='dark'>
                         Meal Type
+                        </ToggleButton>
+                        <ToggleButton type="radio" 
+                                name="radio" 
+                                defaultChecked 
+                                value="tags" 
+                                checked={this.state.filterByField === "tags"}
+                                onChange={this.handleFilter}
+                                variant='dark'>
+                        Tags
                         </ToggleButton>
         
                     </ButtonGroup>

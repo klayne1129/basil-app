@@ -18,7 +18,8 @@ class RecipeComponent extends Component {
             ingredients: '',
             notes: '',
             mealType: 'selectOne',
-            image: ''
+            image: '',
+            tags: ''
         }
         // this.onChangeImage = this.onChangeImage.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
@@ -44,7 +45,8 @@ class RecipeComponent extends Component {
                 ingredients: response.data.ingredients,
                 notes: response.data.notes,
                 mealType: response.data.mealType,
-                image: response.data.image
+                image: response.data.image,
+                tags: response.data.tags
             }))
     }
 
@@ -97,7 +99,8 @@ class RecipeComponent extends Component {
             ingredients: values.ingredients,
             notes: values.notes,
             mealType: values.mealType,
-            image: values.image
+            image: values.image,
+            tags: values.tags
         }
 
         if (this.state.id === -1) {
@@ -113,7 +116,7 @@ class RecipeComponent extends Component {
 
     render() {
         //destructuring 
-        let { title, directions, ingredients, notes, mealType, image} = this.state
+        let { title, directions, ingredients, notes, mealType, image, tags} = this.state
 
         return (
 
@@ -128,7 +131,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ title, directions, ingredients, notes, mealType, image}}
+                        initialValues={{ title, directions, ingredients, notes, mealType, image, tags}}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -181,6 +184,12 @@ class RecipeComponent extends Component {
                                                 <option value='snack'>Snack</option>
                                                 <option value='dessert'>Dessert</option>
                                              </Field>
+                                    </fieldset>
+
+                                    <fieldset className='form-group'>
+                                        <label>Tags</label>
+                                        <Field className='form-control' type='text' name='tags' />
+                                        <p>Please seperate each tag with a comma.</p>
                                     </fieldset>
 
                                     <fieldset className="form-group">

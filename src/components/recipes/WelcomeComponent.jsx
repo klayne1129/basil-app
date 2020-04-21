@@ -12,12 +12,13 @@ class WelcomeComponent extends Component {
         this.state = {
             welcomeMessage : '',
             errorMessage : ''
+            
         }
     }
     render() {
         return  (
                      <>
-                        <h1>Welcome!</h1>
+                        <h1>Welcome to Basil!</h1>
                         <div className="container">
                             Welcome {this.props.match.params.name}. 
                             You can manage your recipes <Link to="/recipes">here</Link>.

@@ -26,7 +26,7 @@ class HeaderComponent extends Component {
                 //added target="_blank" to open new window to github. 
                 //Added rel="noopener noreferrer" for security
             <header>
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                <nav className="navbar navbar-expand-md navbar-dark navbar-custom">
                 {/* <div className="navbar-brand">
                         <ul className="navbar-nav">
                             {isUserLoggedIn && <li><Link to="/welcome/Basil" className="nav-link">Basil</Link></li>}

@@ -13,7 +13,8 @@ class ViewRecipeComponent extends Component {
             ingredients: '',
             notes: '',
             mealType: '',
-            image: ''
+            image: '',
+            tags: ''
         }
         this.refreshRecipe = this.refreshRecipe.bind(this);
         this.printRecipeClicked = this.printRecipeClicked.bind(this);
@@ -39,7 +40,8 @@ class ViewRecipeComponent extends Component {
                 ingredients: response.data.ingredients,
                 notes: response.data.notes,
                 mealType: response.data.mealType,
-                image: response.data.image
+                image: response.data.image,
+                tags: response.data.tags
             }))
     }
 
@@ -69,6 +71,11 @@ class ViewRecipeComponent extends Component {
                         <p className='lead'><ol>{this.state.directions.split('\n').map((item, key) => {
                             return <li key={key}>{item}</li>
                         })}</ol></p>
+
+                        <h2>Tags:</h2>
+                        <p className='lead'><ul>{this.state.tags.split(',').map((item, key) => {
+                            return <li key={key}>{item}</li>
+                        })}</ul></p>
 
                         <h2>Notes:</h2>
                         <p><ul>{this.state.notes}</ul></p>

@@ -23,11 +23,12 @@ public class JwtUserDetails implements UserDetails {
 
   private static final long serialVersionUID = 5155720064139820502L;
 
-  
+
   private  final Long id;
+  
   private  String username;
   private  final String password;
-  
+  private String role;
   private  Collection<? extends GrantedAuthority> authorities;
 
   public JwtUserDetails(Long id, String username, String password, String role) {
@@ -35,6 +36,9 @@ public class JwtUserDetails implements UserDetails {
 	this.id = id;
     this.username = username;
     this.password = password;
+    this.role=role;
+    
+    
     //removed String role from constructor. Replaced role with "ROLE_USER_2" TEST
     List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
     authorities.add(new SimpleGrantedAuthority(role));
@@ -42,10 +46,7 @@ public class JwtUserDetails implements UserDetails {
     this.authorities = authorities;
   }
   
-// this is a test. Empty constructor
 
-
-//added setters for username, authorities, and password for test
 
 
   
@@ -83,8 +84,25 @@ public class JwtUserDetails implements UserDetails {
     return password;
   }
 
-  @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
+  
+  public String getRole() {
+	return role;
+}
+
+
+
+
+
+public void setRole(String role) {
+	this.role = role;
+}
+
+
+
+
+  
+ @Override
+public Collection<? extends GrantedAuthority> getAuthorities() {
     return authorities;
   }
 
@@ -92,6 +110,32 @@ public class JwtUserDetails implements UserDetails {
   public boolean isEnabled() {
     return true;
   }
+
+
+//
+//  public class SecurityUser implements UserDetails{
+//	    String ROLE_PREFIX = "ROLE_";
+//
+//	    String userName;
+//	    String password;
+//	    String role;
+//
+//	    public SecurityUser(String username, String password, String role){
+//	        this.userName = username;
+//	        this.password = password;
+//	        this.role = role;
+//	    }
+//
+//	    @Override
+//	    public Collection<? extends GrantedAuthority> getAuthorities() {
+//	        List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+//
+//	        list.add(new SimpleGrantedAuthority(ROLE_PREFIX + role));
+//
+//	        return list;
+//	    }
+
+
 
 }
 

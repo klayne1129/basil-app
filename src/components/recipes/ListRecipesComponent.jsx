@@ -103,9 +103,9 @@ class ListRecipesComponent extends Component{
                                                 <td>{recipe.title}</td>
                                                 <td>{recipe.notes}</td>
                                                 <td>{recipe.mealType}</td>
-                                                <td><button className="btn btn-success" onClick={() => this.viewRecipeClicked(recipe.id)} >View</button></td>
-                                                <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)} >Edit</button></td>
-                                                <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)} >Delete</button></td>
+                                                <td><button className="btn btn-dark" onClick={() => this.viewRecipeClicked(recipe.id)} >View</button></td>
+                                                <td><button className="btn btn-primary" onClick={() => this.updateRecipeClicked(recipe.id)} >Edit</button></td>
+                                                <td><button className="btn btn-danger" onClick={() => this.deleteRecipeClicked(recipe.id)} >Delete</button></td>
                                                 {/* <td><button className="btn btn-success" value="Print" onClick={() => this.printRecipeClicked()}>Print</button></td> */}
                                             
                                             </tr>
@@ -115,7 +115,7 @@ class ListRecipesComponent extends Component{
                                 </tbody>
                             </table>
                             <div className="row">
-                                <button className='btn btn-success' onClick={this.addRecipeClicked}>Add</button>
+                                <button className='btn btn-dark' onClick={this.addRecipeClicked}>Add Recipe</button>
 
                             </div>
                         </div>
