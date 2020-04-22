@@ -14,10 +14,13 @@ class ViewRecipeComponent extends Component {
             notes: '',
             mealType: '',
             image: '',
-            tags: ''
+            tags: '',
+
         }
         this.refreshRecipe = this.refreshRecipe.bind(this);
         this.printRecipeClicked = this.printRecipeClicked.bind(this);
+        this.updatrecipeClicked = this.updateRecipeClicked.bind(this);
+        this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this);
     }
     componentDidMount() {
 
@@ -49,16 +52,33 @@ class ViewRecipeComponent extends Component {
         console.log("print")
         window.print();
     }
+    //edit button clicked
+    // push to that specific recipe page by id to edit
+    updateRecipeClicked(id) {
+        console.log('update ' + id)
+        this.props.history.push(`/recipes/${this.state.id}`)
+    }
+    //    deletes recipe with username and id match, refreshes the recipe list
+    deleteRecipeClicked(id) {
+        let username = AuthenticationService.getLoggedInUser()
+        // console.log(id + " " + username)
+        RecipeDataService.deleteRecipe(username, id)
+        this.props.history.push(`/recipes`)
 
-
+    }
     render() {
-        
-        
-    
+
+
+
         return (
 
 
-            <div>
+            <div className='container pt-4' role='main'>
+                <div className="row">
+                    <button className="btn btn-dark" value="Print" onClick={() => this.printRecipeClicked()}>Print</button>
+                    <button className="btn btn-primary" onClick={() => this.updateRecipeClicked(this.state.id)} >Edit</button>
+                    <button className="btn btn-danger" onClick={() => this.deleteRecipeClicked(this.state.id)} >Delete</button>
+                </div>
                 <div>
 
                     <div>
@@ -93,18 +113,12 @@ class ViewRecipeComponent extends Component {
 
                 </div>
                 <div>
-                        <button className="btn btn-dark" value="Print" onClick={() => this.printRecipeClicked()}>Print</button>
-                    </div>
+
+
+                </div>
             </div>
         )
     }
 }
-
-
-
-
-
-
-
 
 export default ViewRecipeComponent
