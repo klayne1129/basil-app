@@ -59,6 +59,7 @@ class ListRecipesComponent extends Component {
         return this.state.recipes.map(function (currentRecipe, i) {
 
             return <Recipe recipe={currentRecipe} key={i} />
+           
         });
     }
     // push to that new recipe page by id to add

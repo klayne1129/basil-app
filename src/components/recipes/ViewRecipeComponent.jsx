@@ -82,28 +82,29 @@ class ViewRecipeComponent extends Component {
                 <div>
 
                     <div>
-                        <h1>{this.state.title}</h1>
-                        <img className='recipelistimage' src={this.state.image} alt='recipe'></img>
+                        {this.state.title !== '' &&<h1>{this.state.title}</h1>}
+                        {this.state.image !== '' &&<img className='recipelistimage' src={this.state.image} alt='recipe'></img>}
                     </div>
 
                     <div>
                         <h2>Ingredients:</h2>
-                        <p className='lead'><ul>{this.state.ingredients.split('\n').map((item, key) => {
+                        {this.state.ingredients !== '' && <p className='lead'><ul>{this.state.ingredients.split('\n').map((item, key) => {
                             return <li key={key}>{item}</li>
-                        })}</ul></p>
+                        })}</ul></p>}
 
                         <h2>Steps:</h2>
-                        <p className='lead'><ol>{this.state.directions.split('\n').map((item, key) => {
+                        {this.state.directions !== '' && <p className='lead'><ol>{this.state.directions.split('\n').map((item, key) => {
                             return <li key={key}>{item}</li>
-                        })}</ol></p>
+                        })}</ol></p>}
 
                         <h2>Tags:</h2>
-                        <p className='lead'><ul>{this.state.tags.split(',').map((item, key) => {
+                        {this.state.tags !== '' && <p className='lead'><ul>{this.state.tags.split(',').map((item, key) => {
                             return <li key={key}>{item}</li>
-                        })}</ul></p>
+                        })}</ul></p>}
+                        
 
                         <h2>Notes:</h2>
-                        <p className='lead'><ul>{this.state.notes}</ul></p>
+                        {this.state.notes !== '' &&<p className='lead'><ul>{this.state.notes}</ul></p>}
 
                         <h2>Meal Type:</h2>
                         <p className='lead'><ul>{this.state.mealType}</ul></p>
