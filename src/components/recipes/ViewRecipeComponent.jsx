@@ -52,13 +52,18 @@ class ViewRecipeComponent extends Component {
 
 
     render() {
+        
+        
+    
         return (
+
+
             <div>
                 <div>
 
                     <div>
                         <h1>{this.state.title}</h1>
-                        <img className='img-thumbnail viewimage'src={this.state.image} alt='recipe'></img>
+                        <img className='recipelistimage' src={this.state.image} alt='recipe'></img>
                     </div>
 
                     <div>
@@ -78,17 +83,17 @@ class ViewRecipeComponent extends Component {
                         })}</ul></p>
 
                         <h2>Notes:</h2>
-                        <p><ul>{this.state.notes}</ul></p>
+                        <p className='lead'><ul>{this.state.notes}</ul></p>
 
                         <h2>Meal Type:</h2>
-                        <p><ul>{this.state.mealType}</ul></p>
+                        <p className='lead'><ul>{this.state.mealType}</ul></p>
 
 
                     </div>
 
                 </div>
                 <div>
-                        <button className="btn btn-success" value="Print" onClick={() => this.printRecipeClicked()}>Print</button>
+                        <button className="btn btn-dark" value="Print" onClick={() => this.printRecipeClicked()}>Print</button>
                     </div>
             </div>
         )

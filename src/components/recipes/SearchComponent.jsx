@@ -12,9 +12,9 @@ const Recipe = props => (
     <Card className="shadow grow"bg='light' style={{ marginTop: 10}} >
         
         
-            
+    <Card.Img variant='top'  src={props.recipe.image}></Card.Img>
         
-               <Card.Header className='h5'>{props.recipe.title} <Badge variant='success'>{props.recipe.mealType}</Badge></Card.Header> 
+               <Card.Header className='h5'>{props.recipe.title} <Badge variant='secondary'>{props.recipe.mealType}</Badge></Card.Header> 
                     <ListGroup variant="flush" >
                     
                     </ListGroup>
