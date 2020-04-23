@@ -19,7 +19,10 @@ class RecipeComponent extends Component {
             notes: '',
             mealType: 'selectOne',
             image: '',
-            tags: ''
+            tags: '',
+            prepTime: '',
+            cookTime: '',
+            servings: ''
         }
         // this.onChangeImage = this.onChangeImage.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
@@ -46,7 +49,10 @@ class RecipeComponent extends Component {
                 notes: response.data.notes,
                 mealType: response.data.mealType,
                 image: response.data.image,
-                tags: response.data.tags
+                tags: response.data.tags,
+                prepTime: response.data.prepTime,
+                cookTime: response.data.cookTime,
+                servings: response.data.servings
             }))
     }
 
@@ -100,7 +106,10 @@ class RecipeComponent extends Component {
             notes: values.notes,
             mealType: values.mealType,
             image: values.image,
-            tags: values.tags
+            tags: values.tags,
+            prepTime: values.prepTime,
+            cookTime: values.cookTime,
+            servings: values.servings
         }
 
         if (this.state.id === -1) {
@@ -116,7 +125,7 @@ class RecipeComponent extends Component {
 
     render() {
         //destructuring 
-        let { title, directions, ingredients, notes, mealType, image, tags} = this.state
+        let { title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings} = this.state
 
         return (
 
@@ -131,7 +140,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ title, directions, ingredients, notes, mealType, image, tags}}
+                        initialValues={{ title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings}}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -158,6 +167,21 @@ class RecipeComponent extends Component {
                                     </fieldset>
 
                                     <fieldset className='form-group'>
+                                        <label>Serving Size (Optional)</label>
+                                        <Field className='form-control' type='text' name='servings' />
+                                    </fieldset>
+
+                                    <fieldset className='form-group'>
+                                        <label>Prep Time (Optional)</label>
+                                        <Field className='form-control' type='text' name='prepTime' />
+                                    </fieldset>
+
+                                    <fieldset className='form-group'>
+                                        <label>Cook Time (Optional)</label>
+                                        <Field className='form-control' type='text' name='cookTime' />
+                                    </fieldset>
+
+                                    <fieldset className='form-group'>
                                         <label>Directions</label>
                                         <Field as='textarea' className='form-control' type='text' name='directions' id='textBox' />
                                         <p>Please press enter after each step except the last step. Each step should be on it's own line.</p>
@@ -178,9 +202,8 @@ class RecipeComponent extends Component {
                                         <label>Meal Type</label>
                                             <Field as='select' name='mealType'>
                                                 <option selected value='selectOne'>Select One</option>
-                                                <option value='breakfast'>Breakfast</option>
-                                                <option value='lunch'>Lunch</option>
-                                                <option value='dinner'>Dinner</option>
+                                                <option value='entree'>Entree</option>
+                                                <option value='drink'>Drink</option>
                                                 <option value='snack'>Snack</option>
                                                 <option value='dessert'>Dessert</option>
                                              </Field>

@@ -15,6 +15,9 @@ class ViewRecipeComponent extends Component {
             mealType: '',
             image: '',
             tags: '',
+            prepTime: '',
+            cookTime: '',
+            servings: ''
 
         }
         this.refreshRecipe = this.refreshRecipe.bind(this);
@@ -44,7 +47,10 @@ class ViewRecipeComponent extends Component {
                 notes: response.data.notes,
                 mealType: response.data.mealType,
                 image: response.data.image,
-                tags: response.data.tags
+                tags: response.data.tags,
+                prepTime: response.data.prepTime,
+                cookTime: response.data.cookTime,
+                servings: response.data.servings
             }))
     }
 
@@ -79,33 +85,47 @@ class ViewRecipeComponent extends Component {
                     <button className="btn btn-primary" onClick={() => this.updateRecipeClicked(this.state.id)} >Edit</button>
                     <button className="btn btn-danger" onClick={() => this.deleteRecipeClicked(this.state.id)} >Delete</button>
                 </div>
+                {/* container */}
                 <div>
 
                     <div>
-                        {this.state.title !== '' &&<h1>{this.state.title}</h1>}
-                        {this.state.image !== '' &&<img className='recipelistimage' src={this.state.image} alt='recipe'></img>}
+                        {this.state.title !== '' && <h1>{this.state.title}</h1>}
+                        {this.state.image !== '' && <img className='recipelistimage' src={this.state.image} alt='recipe'></img>}
                     </div>
-
+                    <hr />
+                    {/* container of body text */}
                     <div>
+        
                         <h2>Ingredients:</h2>
                         {this.state.ingredients !== '' && <p className='lead'><ul>{this.state.ingredients.split('\n').map((item, key) => {
                             return <li key={key}>{item}</li>
                         })}</ul></p>}
-
+                        <hr />
                         <h2>Steps:</h2>
                         {this.state.directions !== '' && <p className='lead'><ol>{this.state.directions.split('\n').map((item, key) => {
                             return <li key={key}>{item}</li>
                         })}</ol></p>}
+                        <hr />
 
+                        <div>
+                        <h5>Servings:</h5>
+                        {this.state.servings !== '' && <p>{this.state.servings}</p>}
+                        <h5>Prep Time:</h5>
+                        {this.state.prepTime !== '' && <p>{this.state.prepTime}</p>}
+                        <h5>Cook Time:</h5>
+                        {this.state.cookTime !== '' && <p>{this.state.cookTime}</p>}
+                        </div>
+                        <hr />
+                        
                         <h2>Tags:</h2>
                         {this.state.tags !== '' && <p className='lead'><ul>{this.state.tags.split(',').map((item, key) => {
                             return <li key={key}>{item}</li>
                         })}</ul></p>}
-                        
+                        <hr />
 
                         <h2>Notes:</h2>
-                        {this.state.notes !== '' &&<p className='lead'><ul>{this.state.notes}</ul></p>}
-
+                        {this.state.notes !== '' && <p className='lead'><ul>{this.state.notes}</ul></p>}
+                        <hr />
                         <h2>Meal Type:</h2>
                         <p className='lead'><ul>{this.state.mealType}</ul></p>
 
@@ -117,6 +137,7 @@ class ViewRecipeComponent extends Component {
 
 
                 </div>
+                {/* end container */}
             </div>
         )
     }
