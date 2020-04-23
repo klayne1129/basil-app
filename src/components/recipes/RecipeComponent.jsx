@@ -206,6 +206,8 @@ class RecipeComponent extends Component {
                                                 <option value='drink'>Drink</option>
                                                 <option value='snack'>Snack</option>
                                                 <option value='dessert'>Dessert</option>
+                                                <option value='side'>Side</option>
+                                                <option value='app'>Appetizer</option>
                                              </Field>
                                     </fieldset>
 

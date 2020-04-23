@@ -105,7 +105,7 @@ handleTerm(e) {
                     <ToggleButton type="radio" 
                             name="radio" 
                             value="entree" 
-                            checked={this.state.filterByTerm === "breakfast"}
+                            checked={this.state.filterByTerm === "entree"}
                             onChange={this.handleTerm}
                             variant='dark'>
                     Entrees
@@ -125,13 +125,30 @@ handleTerm(e) {
                             onChange={this.handleTerm}
                             variant='dark'>
                     Snacks
-                    </ToggleButton><ToggleButton type="radio" 
+                    </ToggleButton>
+                    <ToggleButton type="radio" 
                             name="radio" 
                             value="drink" 
-                            checked={this.state.filterByTerm === "dinner"}
+                            checked={this.state.filterByTerm === "drink"}
                             onChange={this.handleTerm}
                             variant='dark'>
                     Drinks
+                    </ToggleButton>
+                    <ToggleButton type="radio" 
+                            name="radio" 
+                            value="side" 
+                            checked={this.state.filterByTerm === "side"}
+                            onChange={this.handleTerm}
+                            variant='dark'>
+                    Sides
+                    </ToggleButton>
+                    <ToggleButton type="radio" 
+                            name="radio" 
+                            value="app" 
+                            checked={this.state.filterByTerm === "app"}
+                            onChange={this.handleTerm}
+                            variant='dark'>
+                    Appetizers
                     </ToggleButton>
                     
     
