@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import logo from "./logo2.png"
 
 
 
@@ -18,11 +19,18 @@ class WelcomeComponent extends Component {
     render() {
         return  (
                      <>
+                     <div>
+                         
+                     </div>
+                     <br></br>
+                     <img src={logo} width="300" alt="github.com/klayne1129"/>
+                     <br></br>
                         <h1>Welcome to Basil!</h1>
                         <div className="container">
                             Welcome {this.props.match.params.name}. 
                             You can manage your recipes <Link to="/recipes">here</Link>.
                         </div>
+                        
                         {/* <div className="container">
                             Click here for a customized welcome message. 
                             <button onClick={this.retrieveWelcomeMessage}
@@ -37,6 +45,7 @@ class WelcomeComponent extends Component {
                         </div> */}
 
                     </>
+                    
         )  
     }
 

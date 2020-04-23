@@ -187,15 +187,16 @@ class RecipeComponent extends Component {
                                     </fieldset>
 
                                     <fieldset className='form-group'>
-                                        <label>Tags</label>
+                                        <label>Tags (Optional)</label>
                                         <Field className='form-control' type='text' name='tags' />
                                         <p>Please seperate each tag with a comma.</p>
                                     </fieldset>
 
                                     <fieldset className="form-group">
-                                        <label>Image URL(Optional)</label>
+                                        <label>Image URL (Optional)</label>
                                         <Field type="text" className="form-control" name='image'/>
                                     </fieldset>
+                                    
 
                                     <button type="submit" className='btn btn-success'>Save</button>
 

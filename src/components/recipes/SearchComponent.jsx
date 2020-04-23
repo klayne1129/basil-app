@@ -165,8 +165,8 @@ handleTerm(e) {
             <div className='container pt-4' role='main'>
                 <br></br>
                 {/* <h3 className='mt-3 ml-2 display-3'>Basil</h3> */}
-                <img src={logo} width="70" alt="github.com/klayne1129"/>
-                
+                <img src={logo} width="200" alt="github.com/klayne1129"/>
+                <br></br>
                 <div className='container '>
                     <h5>Search by:</h5>
                     <ButtonGroup toggle className="" >

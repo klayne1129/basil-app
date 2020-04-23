@@ -78,7 +78,8 @@ class ListRecipesComponent extends Component {
                 </div>
                 <br></br>
              
-                <img src={logo} width="70" alt="github.com/klayne1129" />
+                <img src={logo} width="200" alt="github.com/klayne1129" />
+                <br></br>
 
 
                 <CardColumns>{this.recipeList()}
