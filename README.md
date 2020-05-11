@@ -1,68 +1,56 @@
+## Required Tools 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+• Node v8+ for npm
 
-In the project directory, you can run:
+• Visual Studio Code - Latest Version
 
-### `npm start`
+• Java 8+
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+• Eclipse - Oxygen+ - (Embedded Maven From Eclipse)  
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+### Overview
+Recipe website/Database
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Everyone who cooks hates trying to find recipes that are embedded inside 10-page blog posts. My program will allow users to create / edit their recipes and store them online for later use. Users can search for their desired recipe using either the title of the recipe, an ingredient, categorey, or tags (“vegetarian”, “dinner”). Recipes can be updated by users at any time to add notes (e.g., can use honey as a substitute for sugar), adjust the recipe itself (e.g., change ½ tsp of salt to 2 tsp of salt), or add an image to the recipe. If a user wants a physical copy of their recipe, they will have the option to print. This program eliminates the frustration and time wasting that comes with hunting for recipes online and allows busy cooks to get back to what really matters, cooking.
 
-### `npm run build`
+### Features
+o	CREATE: As a user, I want to create a text-based recipe so that I can store it.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+o	EDIT/DELETE: As a user, I want to edit/delete a text-based recipe so that I can update my database as needed.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+o	SEARCH: As a user, I want search for a recipe by text or tags to find my desired recipe.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+o	TAGS: As a user, I want to tag my recipes to maximize categorization and improve search function.
 
-### `npm run eject`
+o	USER LOGIN: As a user, I can log in to the application.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+o	PRINT: As a user, I want to be able to print my recipe for ease of use.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Technologies
+•	Java
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+•	JavaScript
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+•	Spring Boot (REST API Framework)
 
-## Learn More
+•	Spring (Dependency Management)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+•	Spring Security (Authentication and Authorization –JWT)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+•	Maven (Dependency Management)
 
-### Code Splitting
+•	Node.js
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+•	React
 
-### Analyzing the Bundle Size
+•	Bootstrap
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+•	H2 Memory Database
 
-### Making a Progressive Web App
+•	Visual Studio Code
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+•	Eclipse
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
