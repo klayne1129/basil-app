@@ -2,16 +2,9 @@ import axios from 'axios'
 import {API_URL} from '../../Constants.js'
 //create a constant for the key used for session storage
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
+
 class AuthenticationService {
-   
-
-        //connect to backend BasicAuthenticationController using path
-        executeBasicAuthenticationService(username, password) {
-            
-            return axios.get(`${API_URL}/basicauth`, 
-                {headers: {authorization: this.createBasicAuthToken(username,password)}})
-        }
-
+    
         // need to send a post request with the username and password
         executeJWTAuthenticationService(username, password) {
             
@@ -20,19 +13,6 @@ class AuthenticationService {
                 password
             })
         }
-
-        createBasicAuthToken(username, password){
-            return 'Basic ' + window.btoa(username + ":" + password)
-        }
-
-    // whenever a user logs in successfully, send that data to session storage
-    registerSuccessfulLogin(username, password) {
-
-        // console.log("registered login")
-        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
-        this.setupAxiosInterceptors(this.createBasicAuthToken(username,password))
-
-    }
 
     registerSuccessfulLoginForJwt(username,token) {
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
@@ -80,6 +60,28 @@ class AuthenticationService {
          }
         )
     }
+
+
+        //connect to backend BasicAuthenticationController using path
+        executeBasicAuthenticationService(username, password) {
+            
+            return axios.get(`${API_URL}/basicauth`, 
+                {headers: {authorization: this.createBasicAuthToken(username,password)}})
+        }
+
+        createBasicAuthToken(username, password){
+            return 'Basic ' + window.btoa(username + ":" + password)
+        }
+
+         // whenever a user logs in successfully, send that data to session storage
+    registerSuccessfulLogin(username, password) {
+
+        // console.log("registered login")
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+        this.setupAxiosInterceptors(this.createBasicAuthToken(username,password))
+
+    }
+
 }
 
 //for react components export the class directly

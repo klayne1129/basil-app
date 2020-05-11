@@ -5,7 +5,7 @@ import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 
 
-
+//create recipe page
 
 class RecipeComponent extends Component {
     constructor(props) {

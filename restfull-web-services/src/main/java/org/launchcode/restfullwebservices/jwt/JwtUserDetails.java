@@ -23,28 +23,43 @@ public class JwtUserDetails implements UserDetails {
 
   private static final long serialVersionUID = 5155720064139820502L;
 
-
-  private  final Long id;
+// tutorials implementation of UserDetails
+  private Long id;
   
-  private  String username;
-  private  final String password;
+  private String username;
+  private String password;
   private String role;
   private  Collection<? extends GrantedAuthority> authorities;
 
-  public JwtUserDetails(Long id, String username, String password, String role) {
-    this.username = "";
-	this.id = id;
-    this.username = username;
-    this.password = password;
-    this.role=role;
-    
-    
-    //removed String role from constructor. Replaced role with "ROLE_USER_2" TEST
-    List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-    authorities.add(new SimpleGrantedAuthority(role));
+//  public JwtUserDetails(Long id, String username, String password, String role) {
+//    this.username = "";
+//	this.id = id;
+//    this.username = username;
+//    this.password = password;
+//    this.role=role;
+//    
+//    
+//    //removed String role from constructor. Replaced role with "ROLE_USER_2" TEST
+//    List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+//    authorities.add(new SimpleGrantedAuthority(role));
+//
+//    this.authorities = authorities;
+//  }
+  
+  public JwtUserDetails(Users user) {
+	    this.username = user.getUsername();
+		this.id = user.getId();
+	    this.password = user.getPassword();
+	    this.role=user.getRole();
+	    
+	    
+	    
+	    //removed String role from constructor. Replaced role with "ROLE_USER_2" TEST
+	    List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+	    authorities.add(new SimpleGrantedAuthority(this.role));
 
-    this.authorities = authorities;
-  }
+	    this.authorities = authorities;
+	  }
   
 
 
@@ -53,7 +68,7 @@ public class JwtUserDetails implements UserDetails {
   @JsonIgnore
   public Long getId() {
     return id;
-  }
+ }
 
 @Override
   public String getUsername() {
@@ -90,16 +105,6 @@ public class JwtUserDetails implements UserDetails {
 }
 
 
-
-
-
-public void setRole(String role) {
-	this.role = role;
-}
-
-
-
-
   
  @Override
 public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -110,34 +115,6 @@ public Collection<? extends GrantedAuthority> getAuthorities() {
   public boolean isEnabled() {
     return true;
   }
-
-
-//
-//  public class SecurityUser implements UserDetails{
-//	    String ROLE_PREFIX = "ROLE_";
-//
-//	    String userName;
-//	    String password;
-//	    String role;
-//
-//	    public SecurityUser(String username, String password, String role){
-//	        this.userName = username;
-//	        this.password = password;
-//	        this.role = role;
-//	    }
-//
-//	    @Override
-//	    public Collection<? extends GrantedAuthority> getAuthorities() {
-//	        List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
-//
-//	        list.add(new SimpleGrantedAuthority(ROLE_PREFIX + role));
-//
-//	        return list;
-//	    }
-
-
-
 }
-
 
 

@@ -1,5 +1,6 @@
 package org.launchcode.restfullwebservices.jwt.resource;
 
+import java.net.URI;
 import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,15 +15,23 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.launchcode.restfullwebservices.jwt.JwtInMemoryUserDetailsService;
 import org.launchcode.restfullwebservices.jwt.JwtTokenUtil;
 import org.launchcode.restfullwebservices.jwt.JwtUserDetails;
+import org.launchcode.restfullwebservices.jwt.UserJpaRepository;
+import org.launchcode.restfullwebservices.jwt.Users;
+import org.launchcode.restfullwebservices.recipe.models.Recipe;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
@@ -43,6 +52,7 @@ public class JwtAuthenticationRestController {
   @Autowired
   private UserDetailsService jwtInMemoryUserDetailsService;
   
+
   //uses spring security to check if the username and password is right.
   //if theses are correct it loads the user details, generate the JWT token and return it back
   @RequestMapping(value = "${jwt.get.token.uri}", method = RequestMethod.POST)

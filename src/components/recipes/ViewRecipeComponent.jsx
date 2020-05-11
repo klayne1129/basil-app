@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
 import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 
-
+// view of single recipe
 class ViewRecipeComponent extends Component {
     constructor(props) {
         super(props)
@@ -54,6 +54,18 @@ class ViewRecipeComponent extends Component {
             }))
     }
 
+    refreshRecipes() {
+
+        //use the username by using authentication service
+        let username = AuthenticationService.getLoggedInUser()
+        RecipeDataService.retrieveAllRecipes(username)
+            .then(
+                response => {
+                    // console.log(response)
+                    this.setState({ recipes: response.data })
+                }
+            )
+    }
     printRecipeClicked(id) {
         console.log("print")
         window.print();
@@ -65,13 +77,19 @@ class ViewRecipeComponent extends Component {
         this.props.history.push(`/recipes/${this.state.id}`)
     }
     //    deletes recipe with username and id match, refreshes the recipe list
-    deleteRecipeClicked(id) {
-        let username = AuthenticationService.getLoggedInUser()
-        // console.log(id + " " + username)
-        RecipeDataService.deleteRecipe(username, id)
-        this.props.history.push(`/recipes`)
 
-    }
+    deleteRecipeClicked(id) {
+                let username = AuthenticationService.getLoggedInUser()
+                // console.log(id + " " + username)
+                RecipeDataService.deleteRecipe(username, id)
+                    .then(
+                        response => {
+                            this.refreshRecipes()
+                            this.props.history.push(`/recipes`)
+                        }
+                    )
+            }
+    
     render() {
 
 

@@ -5,7 +5,7 @@ import { Card, ListGroup, CardColumns, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import logo from "./logo2.png"
 
-
+//list view of recipes
 const Recipe = props => (
 
     <Link to={'/view/' + props.recipe.id} className="link">
