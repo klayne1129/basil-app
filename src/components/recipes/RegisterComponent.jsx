@@ -10,6 +10,7 @@ class RegisterComponent extends Component {
         this.state = {
             username: '',
             password: '',
+            verifyPassword: ''
         }
         this.handleChange = this.handleChange.bind(this)
         this.signUpClicked = this.signUpClicked.bind(this)
@@ -54,7 +55,7 @@ class RegisterComponent extends Component {
                     Username: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
 
                     Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-
+                    Verify Password: <input type="password" name="verifyPassword" value={this.state.verifyPassword} onChange={this.handleChange} />
                     <button type='submit' className="btn btn-success" onClick={this.signUpClicked}>Sign Up</button>
 
                 </div>

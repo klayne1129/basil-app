@@ -1,7 +1,7 @@
 
 
 INSERT INTO recipe (id, cook_time, directions, image, ingredients, meal_type, notes, prep_time, tags, title, username, servings) VALUES
-  (10,'2 min', 'Put peanut butter on bread
+  (1,'2 min', 'Put peanut butter on bread
 Put jelly butter on bread
 Put together and eat','https://media.fooducate.com/lists/images/581C1900-EBAB-F02D-485D-B485839349FB-2097.jpeg
 ','Bread

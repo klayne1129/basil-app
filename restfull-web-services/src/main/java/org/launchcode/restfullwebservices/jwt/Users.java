@@ -30,6 +30,12 @@ public class Users {
 	
 	
 	
+	public Users() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Long getId() {
 		return id;
 	}
