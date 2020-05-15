@@ -17,6 +17,7 @@ class HeaderComponent extends Component {
 
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
         // console.log(isUserLoggedIn);
+        const getAdminUser =AuthenticationService.getAdminUser()
 
         return (
 
@@ -45,6 +46,7 @@ class HeaderComponent extends Component {
 
                     <ul className="navbar-nav navbar-collapse justify-content-end">
                         {isUserLoggedIn && <li><Link to="/contact" className="nav-link">Contact</Link></li>}
+                        {isUserLoggedIn && getAdminUser && <li><Link to="/userList" className="nav-link">User List</Link></li>}
                         {!isUserLoggedIn && <li><Link to="/login" className="nav-link">Login</Link></li>}
                         {!isUserLoggedIn && <li><Link to="/register" className="nav-link">Register</Link></li>}
                         {isUserLoggedIn && <li><Link to="/logout" className="nav-link" onClick={AuthenticationService.logout}>Logout</Link></li>}

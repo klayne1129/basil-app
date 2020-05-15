@@ -12,6 +12,7 @@ import RecipeComponent from './RecipeComponent.jsx'
 import ViewRecipeComponent from './ViewRecipeComponent.jsx'
 import SearchComponent from './SearchComponent.jsx'
 import ContactComponent from './ContactComponent.jsx'
+import UserListComponent from './UserListComponent.jsx'
 import RegisterComponent from './RegisterComponent.jsx';
 
 
@@ -41,6 +42,7 @@ class RecipeApp extends Component {
                             <AuthenticatedRoute path="/view/:id" component={ViewRecipeComponent}/>
                             <AuthenticatedRoute path="/search" component={SearchComponent}/>
                             <AuthenticatedRoute path="/contact" component={ContactComponent}/>
+                            <AuthenticatedRoute path="/userList" component={UserListComponent}/>
                             <Route component={ErrorComponent}/>
                         </Switch>
                         {/* <FooterComponent/> */}

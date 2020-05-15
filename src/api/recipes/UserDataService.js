@@ -19,6 +19,16 @@ class UserDataService {
     }
 
 
+    //retrieves all users.
+    retrieveAllUsers() {
+        return Axios.get(`${JPA_API_URL}/users`)   
+    }
+
+    deleteUser(id) {
+        
+        return Axios.delete(`${JPA_API_URL}/users/${id}`)   
+    }
+
 }
 
 export default new UserDataService()

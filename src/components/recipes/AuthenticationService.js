@@ -18,14 +18,7 @@ class AuthenticationService {
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
         this.setupAxiosInterceptors(this.createJWTToken(token))
     }
-    registerSuccessfulRegisterForJwt(username,token) {
-        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
-        this.setupAxiosInterceptors(this.createCorsToken(token))
-    }
-
-    createCorsToken(token) {
-        return 'Access-Control-Allow-Origin ' +  token
-    }
+   
     createJWTToken(token) {
         return 'Bearer ' +  token
     }
@@ -50,6 +43,13 @@ class AuthenticationService {
             return ''
         } 
         return user
+    }
+    getAdminUser() {
+        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        if (user=== 'basil') {
+            return user
+        } 
+        return ''
     }
 
 //this will add an dditional parameter to axios get method call to make sure it sends an 
