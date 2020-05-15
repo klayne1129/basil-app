@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import logo from "./logo2.png"
 
 
@@ -11,42 +11,37 @@ class WelcomeComponent extends Component {
         this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this)
         this.handleError = this.handleError.bind(this)
         this.state = {
-            welcomeMessage : '',
-            errorMessage : ''
-            
+            welcomeMessage: '',
+            errorMessage: ''
+
         }
     }
     render() {
-        return  (
-                     <>
-                     <div>
-                         
-                     </div>
-                     <br></br>
-                     <img src={logo} width="300" alt="github.com/klayne1129"/>
-                     <br></br>
-                        <h1>Welcome to Basil!</h1>
-                        <div className="container">
-                            Welcome {this.props.match.params.name}. 
+        return (
+            <>
+                <div>
+
+                </div>
+                <br></br>
+                <img src={logo} width="300" alt="github.com/klayne1129" />
+                <br></br>
+                <h1>Welcome to Basil!</h1>
+                <div className="container">
+                    Welcome {this.props.match.params.name}.
                             You can manage your recipes <Link to="/recipes">here</Link>.
                         </div>
-                        
-                        {/* <div className="container">
-                            Click here for a customized welcome message. 
-                            <button onClick={this.retrieveWelcomeMessage}
-                                 className="btn btn-success">Welcome Message</button>
-                        </div> */}
-                        <div className="container">
-                            {this.state.welcomeMessage}
-                        </div>
-                        {/* errors */}
-                        {/* <div className="container">
-                            {this.state.errorMessage}
-                        </div> */}
 
-                    </>
-                    
-        )  
+                <div className="container">
+                    {this.state.welcomeMessage}
+                </div>
+                {/* errors */}
+                <div className="container">
+                    {this.state.errorMessage}
+                </div>
+
+            </>
+
+        )
     }
 
     // call the promise method. Once called THEN define what should be done with a
@@ -63,10 +58,9 @@ class WelcomeComponent extends Component {
     //     .catch( error => this.handleError(error))
     // }
 
-    handleSuccessfulResponse(response){
-        this.setState({welcomeMessage : response.data.message})   
+    handleSuccessfulResponse(response) {
+        this.setState({ welcomeMessage: response.data.message })
     }
-
 
     // First checks if there is an error message
     // if there is an error message, it appends it
@@ -75,17 +69,17 @@ class WelcomeComponent extends Component {
     // prevents from crashing if you have an error that has no response 
     // (network error, authorization issues)
 
-    handleError(error){
+    handleError(error) {
         console.log(error.response)
         let errorMessage = '';
-        if (errorMessage){
+        if (errorMessage) {
             errorMessage += error.message
         }
 
-        if (error.response && error.response.data){
+        if (error.response && error.response.data) {
             errorMessage += error.response.data.message
         }
-        this.setState({errorMessage : errorMessage})   
+        this.setState({ errorMessage: errorMessage })
     }
 
 }

@@ -3,8 +3,6 @@ import React, { Component } from 'react'
 import UserDataService from '../../api/recipes/UserDataService.js'
 
 
-
-
 class UserListComponent extends Component {
 
     constructor(props) {
@@ -27,8 +25,6 @@ class UserListComponent extends Component {
 
     refreshUsers() {
 
-        //use the username by using authentication service
-       
         UserDataService.retrieveAllUsers()
             .then(
                 response => {
@@ -38,7 +34,6 @@ class UserListComponent extends Component {
     }
 
     deleteUserClicked(id) {
-        // console.log(id + " " + username)
         UserDataService.deleteUser(id)
             .then(
                 response => {
@@ -47,8 +42,6 @@ class UserListComponent extends Component {
                 }
             )
     }
-   
-
 
     render() {
         return (
@@ -61,16 +54,12 @@ class UserListComponent extends Component {
                             <tr>
                                 <th>Username</th>
                                 <th>Delete</th>
-
-
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 this.state.users.map(
                                     user =>
-
-
                                         <tr key={user.id}>
                                             <td>{user.username}</td>
                                             <td><button className="btn btn-danger" onClick={() => this.deleteUserClicked(user.id)} >Delete</button></td>

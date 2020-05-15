@@ -24,10 +24,9 @@ class RecipeComponent extends Component {
             cookTime: '',
             servings: ''
         }
-        // this.onChangeImage = this.onChangeImage.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
         this.validate = this.validate.bind(this)
-       
+
 
     }
     //call api's in this function
@@ -56,7 +55,7 @@ class RecipeComponent extends Component {
             }))
     }
 
-    
+
 
     // if no value present 'enter blank'
     // custom error message using errorMessage props
@@ -84,16 +83,11 @@ class RecipeComponent extends Component {
 
         if (values.mealType === "selectOne") {
             errors.mealType = 'Select a meal type'
-        } 
+        }
 
         return errors
     }
 
-    // onChangeImage(e) {
-    //     this.setState({image: e.target.value})
-    //   }
-
-    //if successfuly updated redirect to list recipes page 
     onSubmit(values) {
 
         let username = AuthenticationService.getLoggedInUser()
@@ -125,7 +119,7 @@ class RecipeComponent extends Component {
 
     render() {
         //destructuring 
-        let { title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings} = this.state
+        let { title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings } = this.state
 
         return (
 
@@ -140,7 +134,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings}}
+                        initialValues={{ title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings }}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -151,7 +145,7 @@ class RecipeComponent extends Component {
                         validateonBlur={false}
                         validate={this.validate}
                         enableReinitialize={true}
-                        >
+                    >
                         {
                             (props) => (
                                 <Form>
@@ -189,26 +183,26 @@ class RecipeComponent extends Component {
 
                                     <fieldset className='form-group'>
                                         <label>Ingredients</label>
-                                        <Field as='textarea' className='form-control' type='text' name='ingredients' id='textBox'/>
+                                        <Field as='textarea' className='form-control' type='text' name='ingredients' id='textBox' />
                                         <p>Please press enter after each ingredient except the last one. Each ingredient should be on it's own line.</p>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
                                         <label>Notes (Optional)</label>
-                                        <Field className='form-control' type='text' name='notes' id='textBox'/>
+                                        <Field className='form-control' type='text' name='notes' id='textBox' />
                                     </fieldset>
- 
+
                                     <fieldset className='form-group'>
                                         <label>Meal Type</label>
-                                            <Field as='select' name='mealType'>
-                                                <option selected value='selectOne'>Select One</option>
-                                                <option value='entree'>Entree</option>
-                                                <option value='drink'>Drink</option>
-                                                <option value='snack'>Snack</option>
-                                                <option value='dessert'>Dessert</option>
-                                                <option value='side'>Side</option>
-                                                <option value='app'>Appetizer</option>
-                                             </Field>
+                                        <Field as='select' name='mealType'>
+                                            <option selected value='selectOne'>Select One</option>
+                                            <option value='entree'>Entree</option>
+                                            <option value='drink'>Drink</option>
+                                            <option value='snack'>Snack</option>
+                                            <option value='dessert'>Dessert</option>
+                                            <option value='side'>Side</option>
+                                            <option value='app'>Appetizer</option>
+                                        </Field>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
@@ -219,9 +213,9 @@ class RecipeComponent extends Component {
 
                                     <fieldset className="form-group">
                                         <label>Image URL (Optional)</label>
-                                        <Field type="text" className="form-control" name='image'/>
+                                        <Field type="text" className="form-control" name='image' />
                                     </fieldset>
-                                    
+
 
                                     <button type="submit" className='btn btn-success'>Save</button>
 

@@ -61,7 +61,6 @@ class ViewRecipeComponent extends Component {
         RecipeDataService.retrieveAllRecipes(username)
             .then(
                 response => {
-                    // console.log(response)
                     this.setState({ recipes: response.data })
                 }
             )
@@ -70,32 +69,29 @@ class ViewRecipeComponent extends Component {
         console.log("print")
         window.print();
     }
-    //edit button clicked
+
     // push to that specific recipe page by id to edit
     updateRecipeClicked(id) {
         console.log('update ' + id)
         this.props.history.push(`/recipes/${this.state.id}`)
     }
-    //    deletes recipe with username and id match, refreshes the recipe list
 
+    //    deletes recipe with username and id match, refreshes the recipe list
     deleteRecipeClicked(id) {
-                let username = AuthenticationService.getLoggedInUser()
-                // console.log(id + " " + username)
-                RecipeDataService.deleteRecipe(username, id)
-                    .then(
-                        response => {
-                            this.refreshRecipes()
-                            this.props.history.push(`/recipes`)
-                        }
-                    )
-            }
-    
+        let username = AuthenticationService.getLoggedInUser()
+        // console.log(id + " " + username)
+        RecipeDataService.deleteRecipe(username, id)
+            .then(
+                response => {
+                    this.refreshRecipes()
+                    this.props.history.push(`/recipes`)
+                }
+            )
+    }
+
     render() {
 
-
-
         return (
-
 
             <div className='container pt-4' role='main'>
                 <div className="row">
@@ -103,7 +99,7 @@ class ViewRecipeComponent extends Component {
                     <button className="btn btn-primary" onClick={() => this.updateRecipeClicked(this.state.id)} >Edit</button>
                     <button className="btn btn-danger" onClick={() => this.deleteRecipeClicked(this.state.id)} >Delete</button>
                 </div>
-                {/* container */}
+
                 <div>
 
                     <div>
@@ -111,9 +107,9 @@ class ViewRecipeComponent extends Component {
                         {this.state.image !== '' && <img className='recipelistimage' src={this.state.image} alt='recipe'></img>}
                     </div>
                     <hr />
-                    {/* container of body text */}
+
                     <div>
-        
+
                         <h2>Ingredients:</h2>
                         {this.state.ingredients !== '' && <p className='lead'><ul>{this.state.ingredients.split('\n').map((item, key) => {
                             return <li key={key}>{item}</li>
@@ -126,15 +122,15 @@ class ViewRecipeComponent extends Component {
                         <hr />
 
                         <div>
-                        <h5>Servings:</h5>
-                        {this.state.servings !== '' && <p>{this.state.servings}</p>}
-                        <h5>Prep Time:</h5>
-                        {this.state.prepTime !== '' && <p>{this.state.prepTime}</p>}
-                        <h5>Cook Time:</h5>
-                        {this.state.cookTime !== '' && <p>{this.state.cookTime}</p>}
+                            <h5>Servings:</h5>
+                            {this.state.servings !== '' && <p>{this.state.servings}</p>}
+                            <h5>Prep Time:</h5>
+                            {this.state.prepTime !== '' && <p>{this.state.prepTime}</p>}
+                            <h5>Cook Time:</h5>
+                            {this.state.cookTime !== '' && <p>{this.state.cookTime}</p>}
                         </div>
                         <hr />
-                        
+
                         <h2>Tags:</h2>
                         {this.state.tags !== '' && <p className='lead'><ul>{this.state.tags.split(',').map((item, key) => {
                             return <li key={key}>{item}</li>
@@ -155,7 +151,7 @@ class ViewRecipeComponent extends Component {
 
 
                 </div>
-                {/* end container */}
+
             </div>
         )
     }

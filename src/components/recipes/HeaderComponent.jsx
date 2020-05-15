@@ -1,12 +1,11 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import AuthenticationService from './AuthenticationService.js'
 import { withRouter } from 'react-router'
 import logo from "./logo2.png"
 
 //headers wont update when the Routers are called unless
 //HeaderComponent wrapped with a call to withRouter
-
 
 //the nav bar 
 //menu links enabled/disabled based on user authentication
@@ -17,28 +16,18 @@ class HeaderComponent extends Component {
 
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
         // console.log(isUserLoggedIn);
-        const getAdminUser =AuthenticationService.getAdminUser()
+        const getAdminUser = AuthenticationService.getAdminUser()
 
         return (
-
-
-
-
-                //added target="_blank" to open new window to github. 
-                //Added rel="noopener noreferrer" for security
+            //added target="_blank" to open new window to github. 
+            //Added rel="noopener noreferrer" for security
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark navbar-custom">
-                {/* <div className="navbar-brand">
-                        <ul className="navbar-nav">
-                            {isUserLoggedIn && <li><Link to="/welcome/Basil" className="nav-link">Basil</Link></li>}
-                        </ul>
-                        </div> */}
                     <a className="navbar-brand" href="https://github.com/klayne1129" target="_blank" rel="noopener noreferrer">
-                        <img src={logo} width="70" alt="github.com/klayne1129"/>
+                        <img src={logo} width="70" alt="github.com/klayne1129" />
                     </a>
-        
 
-                    <ul className="navbar-nav"> 
+                    <ul className="navbar-nav">
                         {isUserLoggedIn && <li><Link to="/welcome/Basil" className="nav-link">Home</Link></li>}
                         {isUserLoggedIn && <li><Link to="/recipes" className="nav-link">Recipes</Link></li>}
                         {isUserLoggedIn && <li><Link to="/search" className="nav-link">Search</Link></li>}

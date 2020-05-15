@@ -14,13 +14,11 @@ class RegisterComponent extends Component {
             role: "ROLE_USER",
             hasSignUpFailed: false,
             showSuccessMessage: false
-           
         }
         this.handleChange = this.handleChange.bind(this)
         this.signUpClicked = this.signUpClicked.bind(this)
-     
-    }
 
+    }
 
     handleChange(event) {
         this.setState(
@@ -36,20 +34,17 @@ class RegisterComponent extends Component {
             username: this.state.username,
             password: this.state.password,
             role: "ROLE_USER"
-
         }
 
-        if(this.state.password === this.state.verifyPassword){
-        UserDataService.createUser(user)
-        this.setState({showSuccessMessage:true})
-        this.setState({hasSignUpFailed:false})
+        if (this.state.password === this.state.verifyPassword) {
+            UserDataService.createUser(user)
+            this.setState({ showSuccessMessage: true })
+            this.setState({ hasSignUpFailed: false })
         } else {
-            this.setState({showSuccessMessage:false})
-            this.setState({hasSignUpFailed:true})
-        }  
+            this.setState({ showSuccessMessage: false })
+            this.setState({ hasSignUpFailed: true })
+        }
     }
-
-
 
     render() {
         return (
@@ -59,9 +54,6 @@ class RegisterComponent extends Component {
                 {this.state.showSuccessMessage && <div className="alert alert-success">Registration successful. Return to login page.</div>}
                 <div className="container">
 
-
-
-                    {/* //value of buttons are tied back to the value of this state */}
                     Username: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
 
                     Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />

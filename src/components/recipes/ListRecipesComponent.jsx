@@ -5,7 +5,7 @@ import { Card, ListGroup, CardColumns, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import logo from "./logo2.png"
 
-//list view of recipes
+//view all recipes in a list view
 const Recipe = props => (
 
     <Link to={'/view/' + props.recipe.id} className="link">
@@ -30,7 +30,7 @@ class ListRecipesComponent extends Component {
         }
         this.refreshRecipes = this.refreshRecipes.bind(this);
         this.addRecipeClicked = this.addRecipeClicked.bind(this);
-       
+
 
     }
 
@@ -53,20 +53,20 @@ class ListRecipesComponent extends Component {
             )
     }
 
-    
+
     recipeList() {
-        
+
         return this.state.recipes.map(function (currentRecipe, i) {
 
             return <Recipe recipe={currentRecipe} key={i} />
-           
+
         });
     }
-    // push to that new recipe page by id to add
-    addRecipeClicked(id) {
+    // push to that new recipe page 
+    addRecipeClicked() {
         this.props.history.push(`/recipes/-1`)
     }
-    
+
     render() {
 
         return (
@@ -77,7 +77,7 @@ class ListRecipesComponent extends Component {
 
                 </div>
                 <br></br>
-             
+
                 <img src={logo} width="200" alt="github.com/klayne1129" />
                 <br></br>
 
@@ -85,9 +85,7 @@ class ListRecipesComponent extends Component {
                 <CardColumns>{this.recipeList()}
 
                 </CardColumns>
-                {/* <script src='script.js'></script> */}
-
-
+                
             </div>
 
         )
