@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UserDataService from '../../api/recipes/UserDataService.js'
-import AuthenticationService from './AuthenticationService.js'
+
 
 
 
@@ -11,7 +11,9 @@ class RegisterComponent extends Component {
             username: '',
             password: '',
             verifyPassword: '',
-            role: "ROLE_USER"
+            role: "ROLE_USER",
+            hasSignUpFailed: false,
+            showSuccessMessage: false
            
         }
         this.handleChange = this.handleChange.bind(this)
@@ -48,24 +50,41 @@ class RegisterComponent extends Component {
     // }
 
     signUpClicked() {
-        console.log("signUp clicked");
         let user = {
             username: this.state.username,
             password: this.state.password,
             role: "ROLE_USER"
 
         }
+
+        if(this.state.password === this.state.verifyPassword){
         UserDataService.createUser(user)
-        this.props.history.push(`/login`)      
+        this.setState({showSuccessMessage:true})
+        this.setState({hasSignUpFailed:false})
+        } else {
+            this.setState({showSuccessMessage:false})
+            this.setState({hasSignUpFailed:true})
+        }  
     }
 
-
+    // loginClicked(){
+    //     AuthenticationService
+    //     .executeJWTAuthenticationService(this.state.username, this.state.password)
+    //     .then((response) => {
+    //         AuthenticationService.registerSuccessfulLoginForJwt(this.state.username,response.data.token)
+    //         this.props.history.push(`/welcome/${this.state.username}`)
+    //     }).catch( () =>{
+    //         this.setState({showSuccessMessage:false})
+    //         this.setState({hasLoginFailed:true})
+    //     })
+    // }
 
     render() {
         return (
             <div >
                 <h1>Registration</h1>
-
+                {this.state.hasSignUpFailed && <div className="alert alert-warning">Passwords do not match!</div>}
+                {this.state.showSuccessMessage && <div className="alert alert-success">Registration successful. Return to login page.</div>}
                 <div className="container">
 
 
