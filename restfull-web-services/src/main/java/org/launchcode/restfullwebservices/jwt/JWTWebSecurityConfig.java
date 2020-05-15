@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -35,6 +36,8 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${jwt.get.token.uri}")
     private String authenticationPath;
 
+    
+    
     //where the InMemoryUserDetailsService configures
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -67,7 +70,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
             //creates stateless application
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
             .authorizeRequests()
-            .anyRequest().authenticated();
+            .anyRequest().permitAll();
         // makes sure every request goes through the filter
        httpSecurity
             .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);

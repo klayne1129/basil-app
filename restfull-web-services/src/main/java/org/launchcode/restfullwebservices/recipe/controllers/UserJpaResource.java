@@ -4,7 +4,6 @@ import java.net.URI;
 
 import org.launchcode.restfullwebservices.jwt.UserJpaRepository;
 import org.launchcode.restfullwebservices.jwt.Users;
-import org.launchcode.restfullwebservices.recipe.models.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -41,13 +38,13 @@ public class UserJpaResource {
 	 
 	 
 	//create a user
-	 @PostMapping("/jpa/users/")
+	 @PostMapping("/jpa/users")
 	 public ResponseEntity<Void> createUser(@RequestBody Users user) {
 	    
 		 user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-	        Users createdUser = userJpaRepository.save(user);
+	        userJpaRepository.save(user);
 	        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-	        		.path("/{id}").buildAndExpand(createdUser.getId()).toUri();
+	        		.path("/{id}").buildAndExpand(user.getId()).toUri();
 	        		
 	        		return ResponseEntity.created(uri).build();
 	        		

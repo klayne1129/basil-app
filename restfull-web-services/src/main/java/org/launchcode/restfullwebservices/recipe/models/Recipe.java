@@ -10,6 +10,7 @@ import javax.persistence.Lob;
 @Entity
 public class Recipe extends AbstractEntity {
 	
+
 	private String mealType;
 	private String username;
 	private String title;
@@ -53,15 +54,14 @@ public class Recipe extends AbstractEntity {
 		this.ingredients = ingredients;
 		this.notes = notes;
 	}
+	
 
 	// getters and setters
 	
 	
-
 	public String getMealType() {
 		return mealType;
 	}
-
 
 	public String getServings() {
 		return servings;

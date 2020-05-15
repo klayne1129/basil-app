@@ -25,17 +25,13 @@ public class Users {
 //		this.role = role;
 //	}
 
-
-	//getters setters
-	
-	
 	
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
+	//getters setters
 	public Long getId() {
 		return id;
 	}
@@ -66,6 +62,11 @@ public class Users {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
 	}
 	 
 	

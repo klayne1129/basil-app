@@ -10,11 +10,15 @@ class RegisterComponent extends Component {
         this.state = {
             username: '',
             password: '',
-            verifyPassword: ''
+            verifyPassword: '',
+            role: "ROLE_USER"
+           
         }
         this.handleChange = this.handleChange.bind(this)
         this.signUpClicked = this.signUpClicked.bind(this)
+     
     }
+
 
     handleChange(event) {
         this.setState(
@@ -25,19 +29,34 @@ class RegisterComponent extends Component {
         )
     }
 
-    signUpClicked(values) {
+    // signUpClicked() {
+    //     console.log("signUp clicked");
+    //     let user = {
+    //         username: this.state.username,
+    //         password: this.state.password,
+    //         role: "ROLE_USER"
+
+    //     }
+    //     // using my default user to authorize any new user
+    //     AuthenticationService
+    //         .executeJWTAuthenticationService("basil","admin")
+    //         .then((response) => {
+    //             AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token)
+    //             UserDataService.createUser(user)
+    //             this.props.history.push(`/welcome}`)
+    //         })
+    // }
+
+    signUpClicked() {
         console.log("signUp clicked");
         let user = {
-            username: values.username,
-            password: values.password
+            username: this.state.username,
+            password: this.state.password,
+            role: "ROLE_USER"
+
         }
-        AuthenticationService
-            .executeJWTAuthenticationService("basil", "admin")
-            .then((response) => {
-                AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token)
-                UserDataService.createUser(user)
-                this.props.history.push(`/login}`)
-            })
+        UserDataService.createUser(user)
+        this.props.history.push(`/login`)      
     }
 
 

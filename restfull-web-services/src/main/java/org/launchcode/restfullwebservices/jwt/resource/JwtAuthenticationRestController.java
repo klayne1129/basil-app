@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,7 +26,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import org.launchcode.restfullwebservices.jwt.JwtInMemoryUserDetailsService;
 import org.launchcode.restfullwebservices.jwt.JwtTokenUtil;
 import org.launchcode.restfullwebservices.jwt.JwtUserDetails;
@@ -53,6 +56,8 @@ public class JwtAuthenticationRestController {
   private UserDetailsService jwtInMemoryUserDetailsService;
   
 
+  
+  
   //uses spring security to check if the username and password is right.
   //if theses are correct it loads the user details, generate the JWT token and return it back
   @RequestMapping(value = "${jwt.get.token.uri}", method = RequestMethod.POST)

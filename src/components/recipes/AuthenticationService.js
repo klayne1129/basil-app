@@ -18,7 +18,14 @@ class AuthenticationService {
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
         this.setupAxiosInterceptors(this.createJWTToken(token))
     }
+    registerSuccessfulRegisterForJwt(username,token) {
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+        this.setupAxiosInterceptors(this.createCorsToken(token))
+    }
 
+    createCorsToken(token) {
+        return 'Access-Control-Allow-Origin ' +  token
+    }
     createJWTToken(token) {
         return 'Bearer ' +  token
     }
