@@ -23,8 +23,7 @@ class RecipeDataService {
 
     //deletes recipe
     deleteRecipe(name, id) {
-        // console.log('executed service')
-        //tell promise to get desired url created in java/eclipse
+        
         return Axios.delete(`${JPA_API_URL}/users/${name}/recipes/${id}`)   
     }
 

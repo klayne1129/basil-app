@@ -31,24 +31,6 @@ class RegisterComponent extends Component {
         )
     }
 
-    // signUpClicked() {
-    //     console.log("signUp clicked");
-    //     let user = {
-    //         username: this.state.username,
-    //         password: this.state.password,
-    //         role: "ROLE_USER"
-
-    //     }
-    //     // using my default user to authorize any new user
-    //     AuthenticationService
-    //         .executeJWTAuthenticationService("basil","admin")
-    //         .then((response) => {
-    //             AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token)
-    //             UserDataService.createUser(user)
-    //             this.props.history.push(`/welcome}`)
-    //         })
-    // }
-
     signUpClicked() {
         let user = {
             username: this.state.username,
@@ -67,17 +49,7 @@ class RegisterComponent extends Component {
         }  
     }
 
-    // loginClicked(){
-    //     AuthenticationService
-    //     .executeJWTAuthenticationService(this.state.username, this.state.password)
-    //     .then((response) => {
-    //         AuthenticationService.registerSuccessfulLoginForJwt(this.state.username,response.data.token)
-    //         this.props.history.push(`/welcome/${this.state.username}`)
-    //     }).catch( () =>{
-    //         this.setState({showSuccessMessage:false})
-    //         this.setState({hasLoginFailed:true})
-    //     })
-    // }
+
 
     render() {
         return (
