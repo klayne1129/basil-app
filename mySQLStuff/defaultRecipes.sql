@@ -1,15 +1,15 @@
 
 
-INSERT INTO recipe (id, cook_time, directions, image, ingredients, meal_type, notes, prep_time, tags, title, username, servings) VALUES
-  (1,'2 min', 'Put peanut butter on bread
+INSERT INTO recipe (id, username, cook_time, directions, image, ingredients, meal_type, notes, prep_time, tags, title, servings, web_link) VALUES
+  (1,'basil','2 min', 'Put peanut butter on bread
 Put jelly butter on bread
 Put together and eat','https://media.fooducate.com/lists/images/581C1900-EBAB-F02D-485D-B485839349FB-2097.jpeg
 ','Bread
 Jelly
-Peanut butter','entree','It is good enough lol.','2 min','vegetarian, vegan','PBJ','basil','1'),
+Peanut butter','entree','It is good enough lol.','2 min','vegetarian, vegan','PBJ','1', 'https://www.allrecipes.com/recipe/67899/better-peanut-butter-sandwich/'),
 
 
- (3,'10 min', 'Divide the beef into 4 equal portions.
+ (3,'basil','10 min', 'Divide the beef into 4 equal portions.
 Press a cube of pepper jack into the center of each and shape the meat around the cheese; form into patties, about 4 inches wide and 3/4 inch thick.
 Season the patties with salt and pepper.
 Heat the vegetable oil in a large skillet over medium-high heat.
@@ -26,10 +26,10 @@ Kosher salt and freshly ground pepper
 4 hamburger buns
 Ketchup, mustard and/or mayonnaise, for spreading (optional)
 Lettuce leaves, sliced tomato and/or sliced red onion, for topping
-Pickles, for serving (optional)','entree','Need to try it!','10 min','Grilling, BBQ','Cheesy Cheese Burgers','basil','4'),
+Pickles, for serving (optional)','entree','Need to try it!','10 min','Grilling, BBQ','Cheesy Cheese Burgers','4','https://www.foodrepublic.com/recipes/all-american-cheeseburger-recipe/'),
 
 
- (4,'30 min', 'Preheat oven to 350F.
+ (4,'basil','30 min', 'Preheat oven to 350F.
 Lightly grease a large 3 qt or 4 qt baking dish and set aside.
 Combine shredded cheeses in a large bowl and set aside.
 Cook the pasta one minute shy of al dente according to the package instructions.
@@ -59,9 +59,9 @@ salt and pepper to taste
 1 1/2 cups panko crumbs
 4 tbsp butter melted
 1/2 cup Parmesan cheese shredded
-1/4 tsp smoked paprika (or regular paprika)','side','Need to try it.','20 min','vegetarian, dairy, cheese, lunch','The BEST Homemade Baked Mac and Cheese','basil','12'),
+1/4 tsp smoked paprika (or regular paprika)','side','Need to try it.','20 min','vegetarian, dairy, cheese, lunch','The BEST Homemade Baked Mac and Cheese','12','https://www.momontimeout.com/best-homemade-baked-mac-and-cheese-recipe/'),
 
-(5,'25 min', 'Preheat oven to 350°F (177°C). Grease two 9-inch cake pans, line with parchment paper, then grease the parchment paper. Parchment paper helps the cakes seamlessly release from the pans.
+(5,'basil','25 min', 'Preheat oven to 350°F (177°C). Grease two 9-inch cake pans, line with parchment paper, then grease the parchment paper. Parchment paper helps the cakes seamlessly release from the pans.
 Make the cake: Whisk the flour, cocoa powder, sugar, baking soda, baking powder, salt, and espresso powder (if using) together in a large bowl. Set aside. Using a handheld or stand mixer fitted with a whisk attachment (or you can use a whisk) mix the oil, eggs, and vanilla together on medium-high speed until combined. Add the buttermilk and mix until combined. Pour the wet ingredients into the dry ingredients, add the hot water/coffee, and whisk or beat on low speed until the batter is completely combined. Batter is thin.
 Divide batter evenly between pans. Bake for 23-26 minutes or until a toothpick inserted in the center comes out clean. Baking times vary, so keep an eye on yours. The cakes are done when a toothpick inserted in the center comes out clean. (Note: Even if they’re completely done, the cooled cakes may *slightly* sink in the center. Cocoa powder is simply not as structurally strong as all-purpose flour and can’t hold up to all the moisture necessary to make a moist tasting chocolate cake. It’s normal!)
 Remove the cakes from the oven and set on a wire rack. Allow to cool completely in the pan.
@@ -88,7 +88,7 @@ Cover leftover cake tightly and store in the refrigerator for up to 5 days.','ht
 1/4 teaspoon salt
 1 teaspoon pure vanilla extract
 optional for decoration: semi-sweet chocolate chips','dessert','Make Ahead & Freezing Instructions: Prepare cake through step 4. Wrap the individual baked and cooled cake layers tightly and refrigerate for up to 2 days or freeze up to 3 months. Bring to room temperature then continue with step 5. You can prepare the chocolate buttercream 2-3 days in advance. Cover and refrigerate, then bring to room temperature before spreading onto/assembling the cake. Frosted cake freezes well, up to 3 months. Thaw overnight in the refrigerator, then bring to room temperature or serve cold.
-.','30 min','chocolate','Triple Chocolate Cake','basil','12');
+.','30 min','chocolate','Triple Chocolate Cake','12','https://addapinch.com/the-best-chocolate-cake-recipe-ever/');
   
   
   

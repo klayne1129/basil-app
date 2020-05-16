@@ -17,7 +17,8 @@ class ViewRecipeComponent extends Component {
             tags: '',
             prepTime: '',
             cookTime: '',
-            servings: ''
+            servings: '',
+            webLink: ''
 
         }
         this.refreshRecipe = this.refreshRecipe.bind(this);
@@ -50,7 +51,8 @@ class ViewRecipeComponent extends Component {
                 tags: response.data.tags,
                 prepTime: response.data.prepTime,
                 cookTime: response.data.cookTime,
-                servings: response.data.servings
+                servings: response.data.servings,
+                webLink: response.data.webLink
             }))
     }
 
@@ -65,7 +67,7 @@ class ViewRecipeComponent extends Component {
                 }
             )
     }
-    printRecipeClicked(id) {
+    printRecipeClicked() {
         console.log("print")
         window.print();
     }
@@ -107,9 +109,20 @@ class ViewRecipeComponent extends Component {
                         {this.state.image !== '' && <img className='recipelistimage' src={this.state.image} alt='recipe'></img>}
                     </div>
                     <hr />
-
+                    <div className="row">
+                            <h5><pre>Servings: </pre></h5>
+                            {this.state.servings !== '' && <p>{this.state.servings}</p>}
+                            <hr width="1" size="1000%"/>
+                            <h5><pre>Prep Time: </pre></h5>
+                            {this.state.prepTime !== '' && <p>{this.state.prepTime}</p>}
+                            <hr width="1" size="1000%"/>
+                            <h5><pre>Cook Time: </pre></h5>
+                            {this.state.cookTime !== '' && <p>{this.state.cookTime}</p>}
+                            <hr width="1" size="1000%"/>
+                        </div>
+                        <hr />
                     <div>
-
+                
                         <h2>Ingredients:</h2>
                         {this.state.ingredients !== '' && <p className='lead'><ul>{this.state.ingredients.split('\n').map((item, key) => {
                             return <li key={key}>{item}</li>
@@ -119,33 +132,32 @@ class ViewRecipeComponent extends Component {
                         {this.state.directions !== '' && <p className='lead'><ol>{this.state.directions.split('\n').map((item, key) => {
                             return <li key={key}>{item}</li>
                         })}</ol></p>}
+
                         <hr />
 
                         <div>
-                            <h5>Servings:</h5>
-                            {this.state.servings !== '' && <p>{this.state.servings}</p>}
-                            <h5>Prep Time:</h5>
-                            {this.state.prepTime !== '' && <p>{this.state.prepTime}</p>}
-                            <h5>Cook Time:</h5>
-                            {this.state.cookTime !== '' && <p>{this.state.cookTime}</p>}
-                        </div>
+                        <h5>Notes:</h5>
+                        {this.state.notes !== '' && <p className='lead'><ul>{this.state.notes}</ul></p>}
                         <hr />
+                        <h5>Website URL:</h5>
+                        <a href={this.state.webLink} target="_blank" rel="noopener noreferrer">{this.state.webLink}</a>
+                        <hr />
+                        </div>
 
-                        <h2>Tags:</h2>
+                        <div className='row'>
+                        <hr width="1" size="100%"/>
+                        <h5>Tags:</h5>
                         {this.state.tags !== '' && <p className='lead'><ul>{this.state.tags.split(',').map((item, key) => {
                             return <li key={key}>{item}</li>
                         })}</ul></p>}
-                        <hr />
-
-                        <h2>Notes:</h2>
-                        {this.state.notes !== '' && <p className='lead'><ul>{this.state.notes}</ul></p>}
-                        <hr />
-                        <h2>Meal Type:</h2>
+                        <hr width="1" size="100%"/>
+                        <h5>Meal Type:</h5>
                         <p className='lead'><ul>{this.state.mealType}</ul></p>
-
-
+                        <hr width="1" size="100%"/>
+                        </div>
+                        
                     </div>
-
+                    
                 </div>
                 <div>
 

@@ -22,7 +22,8 @@ class RecipeComponent extends Component {
             tags: '',
             prepTime: '',
             cookTime: '',
-            servings: ''
+            servings: '',
+            webLink: ''
         }
         this.onSubmit = this.onSubmit.bind(this)
         this.validate = this.validate.bind(this)
@@ -51,7 +52,8 @@ class RecipeComponent extends Component {
                 tags: response.data.tags,
                 prepTime: response.data.prepTime,
                 cookTime: response.data.cookTime,
-                servings: response.data.servings
+                servings: response.data.servings,
+                webLink: response.data.webLink
             }))
     }
 
@@ -103,7 +105,8 @@ class RecipeComponent extends Component {
             tags: values.tags,
             prepTime: values.prepTime,
             cookTime: values.cookTime,
-            servings: values.servings
+            servings: values.servings,
+            webLink: values.webLink
         }
 
         if (this.state.id === -1) {
@@ -119,7 +122,7 @@ class RecipeComponent extends Component {
 
     render() {
         //destructuring 
-        let { title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings } = this.state
+        let { title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings, webLink } = this.state
 
         return (
 
@@ -134,7 +137,7 @@ class RecipeComponent extends Component {
                         // usually you would need to list initial values as key value pairs
                         // but if the key is the same as the value you only have to 
                         // list the value (name, directions, ingredients)
-                        initialValues={{ title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings }}
+                        initialValues={{ title, directions, ingredients, notes, mealType, image, tags, prepTime, cookTime, servings, webLink }}
 
                         //sends ErrorMessages when validation fails only whens button clicked
                         //form only submited if validation passed 
@@ -157,39 +160,39 @@ class RecipeComponent extends Component {
 
                                     <fieldset className='form-group'>
                                         <label>Title</label>
-                                        <Field className='form-control' type='text' name='title' />
+                                        <Field className='form-control' type='text' name='title'  placeholder="Mama Freddie's Spaghetti"/>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
                                         <label>Serving Size (Optional)</label>
-                                        <Field className='form-control' type='text' name='servings' />
+                                        <Field className='form-control' type='text' name='servings'  placeholder='8 servings'/>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
                                         <label>Prep Time (Optional)</label>
-                                        <Field className='form-control' type='text' name='prepTime' />
+                                        <Field className='form-control' type='text' name='prepTime'  placeholder='5 mins'/>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
                                         <label>Cook Time (Optional)</label>
-                                        <Field className='form-control' type='text' name='cookTime' />
-                                    </fieldset>
-
-                                    <fieldset className='form-group'>
-                                        <label>Directions</label>
-                                        <Field as='textarea' className='form-control' type='text' name='directions' id='textBox' />
-                                        <p>Please press enter after each step except the last step. Each step should be on it's own line.</p>
+                                        <Field className='form-control' type='text' name='cookTime' placeholder='20 mins'/>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
                                         <label>Ingredients</label>
-                                        <Field as='textarea' className='form-control' type='text' name='ingredients' id='textBox' />
+                                        <Field as='textarea' className='form-control' type='text' name='ingredients' id='textBox' placeholder='pasta sauce&#10;spaghetti noodles&#10;'/>
                                         <p>Please press enter after each ingredient except the last one. Each ingredient should be on it's own line.</p>
                                     </fieldset>
 
                                     <fieldset className='form-group'>
+                                        <label>Directions</label>
+                                        <Field as='textarea' className='form-control' type='text' name='directions' id='textBox' placeholder='First boil water&#10;Place dry spaghetti noodles into boiling water&#10;' />
+                                        <p>Please press enter after each step except the last step. Each step should be on it's own line.</p>
+                                    </fieldset>
+
+                                    <fieldset className='form-group'>
                                         <label>Notes (Optional)</label>
-                                        <Field className='form-control' type='text' name='notes' id='textBox' />
+                                        <Field className='form-control' type='text' name='notes' id='textBox' placeholder='Can freeze for meal prep.' />
                                     </fieldset>
 
                                     <fieldset className='form-group'>
@@ -207,13 +210,20 @@ class RecipeComponent extends Component {
 
                                     <fieldset className='form-group'>
                                         <label>Tags (Optional)</label>
-                                        <Field className='form-control' type='text' name='tags' />
+                                        <Field className='form-control' type='text' name='tags' placeholder='easy,itallian,pasta'/>
                                         <p>Please seperate each tag with a comma.</p>
                                     </fieldset>
 
                                     <fieldset className="form-group">
                                         <label>Image URL (Optional)</label>
-                                        <Field type="text" className="form-control" name='image' />
+                                        <Field type="text" className="form-control" name='image' placeholder="https://www.spendwithpennies.com/wp-content/uploads/2019/03/Spaghetti-and-Meatballs-SpendWithPennies-4.jpg"/>
+                                        <p>If you see an image online you would like to use, right click image and hit "open image in new tab". Copy the url in your browser and paste it here.</p>
+                                    </fieldset>
+
+                                    <fieldset className="form-group">
+                                        <label>Website URL (Optional)</label>
+                                        <Field type="text" className="form-control" name='webLink' placeholder="www.Freddie'sAwesomeSpaghetti.com"/>
+                                        <p>Copy the desired website's url and paste it here.</p>
                                     </fieldset>
 
 

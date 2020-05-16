@@ -15,6 +15,7 @@ public class Recipe extends AbstractEntity {
 	private String username;
 	private String title;
 	private String image;
+	private String webLink;
 	private String tags;
 	private String prepTime;
 	private String cookTime;
@@ -39,13 +40,14 @@ public class Recipe extends AbstractEntity {
 	}
 
 
-	public Recipe(String mealType, String username, String title, String image, String tags, String prepTime,
-			String cookTime, String servings, String directions, String ingredients, String notes) {
+	public Recipe(String mealType, String username, String title, String image, String webLink, String tags,
+			String prepTime, String cookTime, String servings, String directions, String ingredients, String notes) {
 		super();
 		this.mealType = mealType;
 		this.username = username;
 		this.title = title;
 		this.image = image;
+		this.webLink = webLink;
 		this.tags = tags;
 		this.prepTime = prepTime;
 		this.cookTime = cookTime;
@@ -54,11 +56,23 @@ public class Recipe extends AbstractEntity {
 		this.ingredients = ingredients;
 		this.notes = notes;
 	}
-	
+
+
+
 
 	// getters and setters
 	
 	
+	public String getWebLink() {
+		return webLink;
+	}
+
+
+	public void setWebLink(String webLink) {
+		this.webLink = webLink;
+	}
+
+
 	public String getMealType() {
 		return mealType;
 	}
