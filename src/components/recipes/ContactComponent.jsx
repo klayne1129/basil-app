@@ -17,14 +17,17 @@ class ContactComponent extends Component {
     }
     render() {
         return (
+
+            
             <>
+
                 <div>
 
                 </div>
                 <br></br>
                 <img src={logo} width="200" alt="github.com/klayne1129" />
                 <br></br>
-
+                <br></br>
                 <div className="container">
 
                     

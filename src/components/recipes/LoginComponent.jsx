@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
 
-
-
-
 class LoginComponent extends Component {
     constructor(props) {
         super(props)
@@ -64,6 +61,8 @@ class LoginComponent extends Component {
 
     render() {
         return (
+
+
             <div >
                 <h1>Login</h1>
 
