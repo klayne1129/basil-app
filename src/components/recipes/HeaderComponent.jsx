@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import AuthenticationService from './AuthenticationService.js'
 import { withRouter } from 'react-router'
-import logo from "./logo2.png"
+import logo from "../../images/logo2.png"
 
 //headers wont update when the Routers are called unless
 //HeaderComponent wrapped with a call to withRouter

@@ -3,7 +3,7 @@ import AuthenticationService from './AuthenticationService.js'
 import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import { Card, ListGroup, CardColumns, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import logo from "./logo2.png"
+import logo from "../../images/logo2.png"
 
 //view all recipes in a list view
 const Recipe = props => (
@@ -79,6 +79,11 @@ class ListRecipesComponent extends Component {
                 <br></br>
 
                 <img src={logo} width="200" alt="github.com/klayne1129" />
+                <br></br>
+                <br></br>
+                {this.state.recipes.length === 0 && <p className="lead">Looks pretty empty in here! Click "Add Recipe" to create a new recipe.</p>}
+                {this.state.recipes.length !== 0 && <p className="lead">Click on the recipe card for ingredients and steps!</p>}
+                
                 <br></br>
 
 

@@ -3,7 +3,7 @@ import AuthenticationService from './AuthenticationService.js'
 import RecipeDataService from '../../api/recipes/RecipeDataService.js'
 import { Card, ListGroup, CardColumns, ButtonGroup, ToggleButton, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import logo from "./logo2.png"
+import logo from "../../images/logo2.png"
 
 
 const Recipe = props => (
@@ -168,6 +168,7 @@ class SearchComponent extends Component {
                 <br></br>
                 {/* <h3 className='mt-3 ml-2 display-3'>Basil</h3> */}
                 <img src={logo} width="200" alt="github.com/klayne1129" />
+                <br></br>
                 <br></br>
                 <div className='container '>
                     <h5>Search by:</h5>

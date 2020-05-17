@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from "./logo2.png"
+import logo from "../../images/logo2.png"
 
 
 
@@ -26,6 +26,8 @@ class ContactComponent extends Component {
                 <br></br>
 
                 <div className="container">
+
+                    
                     <h3>You can contact me here:</h3>
 
                     <div id="list">

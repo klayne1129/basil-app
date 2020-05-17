@@ -17,6 +17,7 @@ class RegisterComponent extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.signUpClicked = this.signUpClicked.bind(this)
+        this.handleKeyPress = this.handleKeyPress.bind(this)
 
     }
 
@@ -46,6 +47,25 @@ class RegisterComponent extends Component {
         }
     }
 
+    handleKeyPress = e => {
+        if (e.key === "Enter") {
+            let user = {
+                username: this.state.username,
+                password: this.state.password,
+                role: "ROLE_USER"
+            }
+    
+            if (this.state.password === this.state.verifyPassword) {
+                UserDataService.createUser(user)
+                this.setState({ showSuccessMessage: true })
+                this.setState({ hasSignUpFailed: false })
+            } else {
+                this.setState({ showSuccessMessage: false })
+                this.setState({ hasSignUpFailed: true })
+            }
+        }
+    }
+
     render() {
         return (
             <div >
@@ -57,7 +77,7 @@ class RegisterComponent extends Component {
                     Username: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
 
                     Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-                    Verify Password: <input type="password" name="verifyPassword" value={this.state.verifyPassword} onChange={this.handleChange} />
+                    Verify Password: <input type="password" name="verifyPassword" value={this.state.verifyPassword} onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
                     <button type='submit' className="btn btn-success" onClick={this.signUpClicked}>Sign Up</button>
 
                 </div>

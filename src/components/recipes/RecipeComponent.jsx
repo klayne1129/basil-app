@@ -226,7 +226,6 @@ class RecipeComponent extends Component {
                                         <p>Copy the desired website's url and paste it here.</p>
                                     </fieldset>
 
-
                                     <button type="submit" className='btn btn-success'>Save</button>
 
                                 </Form>

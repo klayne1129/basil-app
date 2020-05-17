@@ -9,7 +9,7 @@ class LoginComponent extends Component {
         super(props)
         // added state to component
         this.state = {
-            username: 'basil',
+            username: '',
             password: '',
             hasLoginFailed: false,
             showSuccessMessage: false
@@ -74,9 +74,9 @@ class LoginComponent extends Component {
                     {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
                     {this.state.showSuccessMessage && <div>Login Successful</div>}
 
-                    Username: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+                    Username: <input type="text" name="username" placeholder='' value={this.state.username} onChange={this.handleChange} />
 
-                    Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
+                    Password: <input type="password" name="password" placeholder='' value={this.state.password} onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
 
                     <button type='submit' className="btn btn-success" onClick={this.loginClicked}>Login</button>
 

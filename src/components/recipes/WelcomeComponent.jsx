@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import logo from "./logo2.png"
-
-
+import logo from "../../images/logo2.png"
+import AuthenticationService from './AuthenticationService.js'
 
 class WelcomeComponent extends Component {
 
@@ -15,60 +13,8 @@ class WelcomeComponent extends Component {
             errorMessage: ''
 
         }
+
     }
-    render() {
-        return (
-            <>
-                <div>
-
-                </div>
-                <br></br>
-                <img src={logo} width="300" alt="github.com/klayne1129" />
-                <br></br>
-                <h1>Welcome to Basil!</h1>
-                <div className="container">
-                    Welcome {this.props.match.params.name}.
-                            You can manage your recipes <Link to="/recipes">here</Link>.
-                        </div>
-
-                <div className="container">
-                    {this.state.welcomeMessage}
-                </div>
-                {/* errors */}
-                <div className="container">
-                    {this.state.errorMessage}
-                </div>
-
-            </>
-
-        )
-    }
-
-    // call the promise method. Once called THEN define what should be done with a
-    // successful response
-    // retrieveWelcomeMessage() {
-    //     // HelloWorldService.executeHelloWorldService()
-    //     // .then( response => this.handleSuccessfulResponse(response) )
-
-    //     // HelloWorldService.executeHelloWorldBeanService()
-    //     // .then( response => this.handleSuccessfulResponse(response) )
-
-    //     HelloWorldService.executeHelloWorldPathVariableService(this.props.match.params.name)
-    //     .then( response => this.handleSuccessfulResponse(response) )
-    //     .catch( error => this.handleError(error))
-    // }
-
-    handleSuccessfulResponse(response) {
-        this.setState({ welcomeMessage: response.data.message })
-    }
-
-    // First checks if there is an error message
-    // if there is an error message, it appends it
-    // then it checks if there is something in the response data (not null)
-    // if there is a response you append it to the error message.
-    // prevents from crashing if you have an error that has no response 
-    // (network error, authorization issues)
-
     handleError(error) {
         console.log(error.response)
         let errorMessage = '';
@@ -81,7 +27,43 @@ class WelcomeComponent extends Component {
         }
         this.setState({ errorMessage: errorMessage })
     }
+    handleSuccessfulResponse(response) {
+        this.setState({ welcomeMessage: response.data.message })
+    }
 
+    render() {
+        return (
+
+            <>
+                <div className="container">
+
+                    {/*Jumbotron Header*/}
+                    
+                    <header className="jumbotron my-4">
+                    <img src={logo} width="300" alt="github.com/klayne1129" />
+                        <h1 className="display-3">Welcome {AuthenticationService.getLoggedInUser()}!</h1>
+                        <p className="lead">
+                            Hey there! Basil is designed to be your own personal recipe database. 
+                            Whether its from your favorite food blog or your family's recipe book, 
+                            all recipes can be stored here. Click the button below to get started.</p>
+                        <a href="/recipes" className="btn btn-dark btn-lg">View my recipes!</a>
+                    </header>
+
+                    <div className="container">
+                        {this.state.welcomeMessage}
+                    </div>
+
+                    {/* errors */}
+                    <div className="container">
+                        {this.state.errorMessage}
+                    </div>
+
+                </div>
+
+            </>
+
+        )
+    }
 }
 
 
