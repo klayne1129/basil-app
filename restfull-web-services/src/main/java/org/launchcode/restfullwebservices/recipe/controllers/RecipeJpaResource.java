@@ -25,7 +25,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 //controller class
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
 public class RecipeJpaResource {
 	
 

@@ -1,13 +1,11 @@
 package org.launchcode.restfullwebservices.jwt.resource;
 
-import java.net.URI;
 import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,28 +14,16 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import org.launchcode.restfullwebservices.jwt.JwtInMemoryUserDetailsService;
 import org.launchcode.restfullwebservices.jwt.JwtTokenUtil;
 import org.launchcode.restfullwebservices.jwt.JwtUserDetails;
-import org.launchcode.restfullwebservices.jwt.UserJpaRepository;
-import org.launchcode.restfullwebservices.jwt.Users;
-import org.launchcode.restfullwebservices.recipe.models.Recipe;
+
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
 public class JwtAuthenticationRestController {
 
 	

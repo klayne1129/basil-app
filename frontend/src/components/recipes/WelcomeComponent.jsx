@@ -8,6 +8,7 @@ class WelcomeComponent extends Component {
         super(props)
         this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this)
         this.handleError = this.handleError.bind(this)
+        this.welcomeClicked = this.welcomeClicked.bind(this)
         this.state = {
             welcomeMessage: '',
             errorMessage: ''
@@ -15,6 +16,12 @@ class WelcomeComponent extends Component {
         }
 
     }
+
+    welcomeClicked() {
+        console.log("welcome clicked")
+        this.props.history.push(`/recipes`)
+    }
+
     handleError(error) {
         console.log(error.response)
         let errorMessage = '';
@@ -46,7 +53,7 @@ class WelcomeComponent extends Component {
                             Hey there! Basil is designed to be your own personal recipe database. 
                             Whether its from your favorite food blog or your family's recipe book, 
                             all recipes can be stored here. Click the button below to get started.</p>
-                        <a href="/recipes" className="btn btn-dark btn-lg">View my recipes!</a>
+                        <button className="btn btn-dark btn-lg" onClick={this.welcomeClicked}>View my recipes!</button>
                     </header>
 
                     <div className="container">
