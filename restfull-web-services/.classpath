@@ -29,5 +29,34 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/KatieLayne/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.11/istack-commons-runtime-3.0.11.jar" sourcepath="/Users/KatieLayne/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.11/istack-commons-runtime-3.0.11-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="javadoc_location" value="jar:file:/Users/KatieLayne/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.11/istack-commons-runtime-3.0.11-javadoc.jar!/"/>
+			<attribute name="maven.groupId" value="com.sun.istack"/>
+			<attribute name="maven.artifactId" value="istack-commons-runtime"/>
+			<attribute name="maven.version" value="3.0.11"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/KatieLayne/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.7/istack-commons-runtime-3.0.7.jar" sourcepath="/Users/KatieLayne/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.7/istack-commons-runtime-3.0.7-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="com.sun.istack"/>
+			<attribute name="maven.artifactId" value="istack-commons-runtime"/>
+			<attribute name="maven.version" value="3.0.7"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/KatieLayne/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar" sourcepath="/Users/KatieLayne/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="validation-api-2.0.1.Final.jar"/>
+			<attribute name="maven.groupId" value="javax.validation"/>
+			<attribute name="maven.artifactId" value="validation-api"/>
+			<attribute name="maven.version" value="2.0.1.Final"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

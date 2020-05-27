@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
 
+
 class LoginComponent extends Component {
     constructor(props) {
         super(props)
@@ -28,6 +29,7 @@ class LoginComponent extends Component {
             }
         )
     }
+
 
     //Call the JWTAuthenticationService, if succesful response comes back,
     //register a token for the intercepter so token will be used on,

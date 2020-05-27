@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
-class ErrorComponent extends Component {
-    render() {
+function ErrorComponent() {
+    
         return <div>An Error has occured. Page not found.</div>
-    }
+    
 }
 
 export default ErrorComponent
